@@ -3,7 +3,7 @@ package com.gachon.swdm.ths.web.bean;
 public class ClassRoom {
 	
 	//primary key(building, room_number)
-	private String building;
+	private String building; 
 	private String room_number;
 	private int capacity;
 	

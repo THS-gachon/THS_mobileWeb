@@ -10,8 +10,6 @@ import org.springframework.ui.Model;
  * This class can be developed by AOP.
  */
 public class LoginChecker {
-	
-
 	/**
 	 * 
 	 * @param model the model to be checked.
@@ -19,7 +17,7 @@ public class LoginChecker {
 	 */
 	public static boolean isLogined(Model model)
 	{
-		if(model.containsAttribute("memeber"))
+		if(model.containsAttribute("member"))
 			return true;
 		
 		return false;

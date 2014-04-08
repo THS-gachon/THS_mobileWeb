@@ -9,7 +9,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Welcome</title> 
+		<title>Login page</title> 
 	</head> 
 	<body>
 	<form:form modelAttribute="user" method="POST" action="login.action" >

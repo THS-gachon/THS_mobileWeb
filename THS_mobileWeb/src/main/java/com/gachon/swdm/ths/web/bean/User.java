@@ -2,25 +2,31 @@ package com.gachon.swdm.ths.web.bean;
 
 
 public class User {
+	//primary key (personId)
+	//loginId index
 	
 	private String loginId;
-	private int personId;
+	private long personId=2011;
 	private String pw;
-	private String name;
-	private String phoneNumber;
-	private int position;
-	private String dept_name;
+	private String name="Kim";
+	private String phoneNumber="010";
+	private int position=0;
+	private String dept_name="Sofware Design & Management";
 	
+	public User()
+	{
+		
+	}
 	public String getLoginId() {
 		return loginId;
 	}
 	public void setLoginId(String loginId) {
 		this.loginId = loginId;
 	}
-	public int getPersonId() {
+	public long getPersonId() {
 		return personId;
 	}
-	public void setPersonId(int personId) {
+	public void setPersonId(long personId) {
 		this.personId = personId;
 	}
 	public String getPw() {

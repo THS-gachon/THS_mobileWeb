@@ -14,13 +14,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
-import org.springframework.web.bind.support.SessionStatus;
+
 
 import com.gachon.swdm.ths.web.bean.User;
 
 
 @Controller
-@SessionAttributes("member")//"member" is the key of model object. The value object of the key,"member" is stored in session.
+@SessionAttributes("member")//"member" is the key of model object. The value object of the key,"member", is stored in session.
 public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
@@ -32,14 +32,16 @@ public class HomeController {
 	 */
 	@Autowired 
 	@Qualifier("tmpUsers")
-	private ConcurrentHashMap<String,String> tmpUsers;
+	public static ConcurrentHashMap<String,String> tmpUsers;
 	
 	
-	@RequestMapping(value="/", method = RequestMethod.GET) 
+	
+	@RequestMapping(value="/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model)
 	{
 		return this.loginForm(locale, model);
 	}
+	
 	
 
 
@@ -65,6 +67,7 @@ public class HomeController {
 		
 		else{
 			model.addAttribute("member", user);
+			logger.debug("성공");
 			System.out.println("성공");
 			return "index";	
 		}

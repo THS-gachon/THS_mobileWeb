@@ -9,17 +9,16 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Login page</title> 
 	</head> 
 	<body>
-	<form:form modelAttribute="user" method="POST" action="login.action" >
-			ID <form:input path="loginId"/>
-			<br/>
-			Password <form:password path="pw"/>
-						
-			<input type="submit"/>
-		</form:form>
-	</body>
-	<a href="signUp.action"><spring:message code="label.signUp"/> </a>
+	<a href="main.action"></a><spring:message code="label.mainPage_userInfo"/>
+	<br/>
 	
+<spring:message code="label.mainPage_notice"/>
+
+	<br/>
+	<spring:message code="label.mainPage_myClass"/>
+	<br/>
+	<spring:message code="label.mainPage_configuration"/>
+	<br/>
 </html>

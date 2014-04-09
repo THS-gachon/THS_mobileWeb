@@ -12,6 +12,8 @@
 		<title>Login page</title> 
 	</head> 
 	<body>
+	<div id="course_menu"/>
+	
 	<form:form modelAttribute="user" method="POST" action="login.action" >
 			ID <form:input path="loginId"/>
 			<br/>

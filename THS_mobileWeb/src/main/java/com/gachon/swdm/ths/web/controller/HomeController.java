@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -15,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-
+import com.gachon.swdm.ths.web.bean.EditedUser;
 import com.gachon.swdm.ths.web.bean.User;
 
 
@@ -32,7 +33,7 @@ public class HomeController {
 	 */
 	@Autowired 
 	@Qualifier("tmpUsers")
-	public static ConcurrentHashMap<String,String> tmpUsers;
+	public ConcurrentHashMap<String,String> tmpUser;
 	
 	
 	
@@ -42,6 +43,24 @@ public class HomeController {
 		return this.loginForm(locale, model);
 	}
 	
+	
+	@RequestMapping(value="/signUp.action", method = RequestMethod.GET)
+	public String signUpForm(Locale locale, Model model)
+	{
+		EditedUser user = new EditedUser();
+		model.addAttribute("user", user);
+		return "signup_form";
+	}
+	
+	@RequestMapping(value="/signUp.action", method = RequestMethod.POST)
+	public String signUpAction(@ModelAttribute("user") EditedUser user,Locale locale, Model model)
+	{
+		//signup
+		
+		tmpUser.put(user.getLoginId(), user.getPw());
+		
+		return "login_form";
+	}
 	
 
 
@@ -83,7 +102,8 @@ public class HomeController {
 	 */
 	private User authenticate(User user)
 	{
-		String pw = tmpUsers.get(user.getLoginId());
+		System.out.println(user.getLoginId());
+		String pw = tmpUser.get(user.getLoginId());
 		if(pw == null)
 			return null;
 		

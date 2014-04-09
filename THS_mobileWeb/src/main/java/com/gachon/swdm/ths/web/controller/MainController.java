@@ -19,7 +19,7 @@ import com.gachon.swdm.ths.web.util.LoginChecker;
 @SessionAttributes("member")
 public class MainController {
 	private static final Logger logger = LoggerFactory.getLogger(MainController.class);
-	private String[] selector = new String[]{"userInfo","notice","myClass","configuration"};
+	private String[] selector = new String[]{"main/userInfo","main/notice","main/myClass","main/configuration"};
 	
 	@RequestMapping(value="/main.action", method=RequestMethod.GET)
 	public String select(@RequestParam(value = "selection")int opt, Locale locale, Model model)

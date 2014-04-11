@@ -1,8 +1,6 @@
 package com.gachon.swdm.ths.web.util;
 
 import org.springframework.ui.Model;
-
-
 /**
  * 
  * @author KTS

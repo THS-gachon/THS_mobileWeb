@@ -3,10 +3,23 @@ package com.gachon.swdm.ths.web.bean;
 public class Teaches {
 	
 	//primary key(person id,course_id, sec_id,semester,year)
-	private long personId;
+	/*
+	 	create table teaches(
+	 	id_professor varchar(40),
+	 	year tinyInt,
+	 	semester tinyInt,
+	 	id_course integer,
+	 	primary key(id_professor, year, semester, id_course),
+	 	foreign key(id_professor) references user(id_login),
+	 	foreign key(year, semester, id_course) references course(year, semester, id_course),
+	 	INDEX index1 (year,semester,id_course)
+	 	);
+	 	 
+	 */
+	private String id_professor;
 	
-	private long courseId;
-	private int secId;
+	private int id_course;
+
 	private int semester;
 	private int year;
 	
@@ -25,22 +38,18 @@ public class Teaches {
 	public void setYear(int year) {
 		this.year = year;
 	}
-	public long getCourseId() {
-		return courseId;
+	public String getId_professor() {
+		return id_professor;
 	}
-	public void setCourseId(long courseId) {
-		this.courseId = courseId;
+	public void setId_professor(String id_professor) {
+		this.id_professor = id_professor;
 	}
-	public long getPersonId() {
-		return personId;
+	public int getId_course() {
+		return id_course;
 	}
-	public void setPersonId(long personId) {
-		this.personId = personId;
+	public void setId_course(int id_course) {
+		this.id_course = id_course;
 	}
-	public int getSecId() {
-		return secId;
-	}
-	public void setSecId(int secId) {
-		this.secId = secId;
-	}
+
+
 }

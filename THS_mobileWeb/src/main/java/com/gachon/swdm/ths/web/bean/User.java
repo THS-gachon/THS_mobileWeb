@@ -5,13 +5,39 @@ public class User {
 	//primary key (personId)
 	//loginId index
 	
-	private String loginId;
-	private long personId=2011;
-	private String pw;
-	private String name="Kim";
-	private String phoneNumber="010";
-	private int position=0;
-	private String dept_name="Sofware Design & Management";
+	private String loginId; //varchar(40)
+	private int personId;//integer
+	private String pw; //varchar(50)
+	private String name; //varchar(30)
+	private String phoneNumber;//varchar(20)
+	private int position;//0학생//1. short int
+	private String dept_name;//varchar(40)
+	
+	/*
+	 department must be created
+	 
+	 */
+	/*
+	 
+	 create table user(
+	 	id_login varchar(40),
+	 	id_person integer,
+	 	pw varchar(50),
+	 	name varchar(30),
+	 	phone_number varchar(20),
+	 	position tinyInt,
+	 	dept_name varchar(40),
+	 	primary key (id_login),
+	 	foreign key (dept_name) references department(dept_name),
+	 	INDEX index1 (id_person)
+	 )
+	 
+	 INSERT INTO user(id_login,id_person,pw,name,phone_number,position,dept_name) 
+	 VALUES ("master",201100000,"123", "THS","010","3","소프트웨어 설계 경영학과");
+	 
+	 
+	 
+	 */
 	
 	public User()
 	{
@@ -26,7 +52,7 @@ public class User {
 	public long getPersonId() {
 		return personId;
 	}
-	public void setPersonId(long personId) {
+	public void setPersonId(int personId) {
 		this.personId = personId;
 	}
 	public String getPw() {

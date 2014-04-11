@@ -33,20 +33,44 @@
 		<!-- Test -->
 		<junit.version>4.11</junit.version>
 
+		<!-- tomcat version -->
+		<tomcat.version>7.0.47</tomcat.version>
+		
+		<!-- mysql version -->
+		<mysql.version>5.1.6</mysql.version>
+
 	</properties>
 
 	<dependencies>
-		<!-- MYBATIS -->
-		<dependency>
-			<groupId>org.mybatis</groupId>
-			<artifactId>mybatis</artifactId>
-			<version>3.1.1</version>
+	<!-- MySQL connector -->
+	<dependency>
+		<groupId>mysql</groupId>
+		<artifactId>mysql-connector-java</artifactId>
+		<version>${mysql.version}</version>
 		</dependency>
+		<!-- MYBATIS -->
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis-spring</artifactId>
 			<version>1.1.0</version>
 		</dependency>
+
+		<!-- spring jdbc -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${spring-framework.version}</version>
+		</dependency>
+
+		<!-- tomcat 7.0.47 jdbc -->
+
+		<dependency>
+			<groupId>org.apache.tomcat</groupId>
+			<artifactId>tomcat-jdbc</artifactId>
+			<version>${tomcat.version}</version>
+		</dependency>
+
+
 
 
 		<!-- Spring -->
@@ -71,7 +95,7 @@
 			<version>${spring-framework.version}</version>
 		</dependency>
 
-	
+
 
 		<!-- Spring MVC -->
 		<dependency>

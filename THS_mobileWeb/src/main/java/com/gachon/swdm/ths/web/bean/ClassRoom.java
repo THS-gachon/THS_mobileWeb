@@ -7,6 +7,18 @@ public class ClassRoom {
 	private String room_number;
 	private int capacity;
 	
+	/*
+	 create table class_room(
+	 	building varchar(20),
+	 	room_number varchar(8),
+	 	capacity integer,
+	 	
+	 	primary key(building, room_number),
+	 	foreign key(building) references building(building),
+	 	INDEX index1(building, room_number)
+	 )
+	 */
+	
 	public ClassRoom(){
 		
 	}

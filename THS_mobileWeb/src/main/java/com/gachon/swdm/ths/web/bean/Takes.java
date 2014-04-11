@@ -2,9 +2,22 @@ package com.gachon.swdm.ths.web.bean;
 
 public class Takes {
 	//primary key(persionId, courseId, sec_id, semester, year)
-	private long personId;
-	private long courseId;
-	private long sec_id;
+	/*
+	 create table takes(
+	 	id_student varchar(40),
+	 	year tinyInt,
+	 	semester tinyInt,
+	 	id_course integer,
+	 	grade float,
+	 	primary key(id_student, year, semester, id_course),
+	 	foreign key(id_student) references user(id_login),
+	 	foreign key(year, semester, id_course) references course(year,semester,id_course),	 	
+	 	INDEX index1(id_student, year, semester)
+	 );
+	 
+	 */
+	private String id_student;
+	private int id_course;
 	private int semester;
 	private int year;
 	private int grade;
@@ -12,24 +25,7 @@ public class Takes {
 	public Takes(){
 		
 	}
-	public long getPersonId() {
-		return personId;
-	}
-	public void setPersonId(long personId) {
-		this.personId = personId;
-	}
-	public long getCourseId() {
-		return courseId;
-	}
-	public void setCourseId(long courseId) {
-		this.courseId = courseId;
-	}
-	public long getSec_id() {
-		return sec_id;
-	}
-	public void setSec_id(long sec_id) {
-		this.sec_id = sec_id;
-	}
+
 	public int getSemester() {
 		return semester;
 	}
@@ -47,6 +43,24 @@ public class Takes {
 	}
 	public void setGrade(int grade) {
 		this.grade = grade;
+	}
+
+
+
+	public int getId_course() {
+		return id_course;
+	}
+
+	public void setId_course(int id_course) {
+		this.id_course = id_course;
+	}
+
+	public String getId_student() {
+		return id_student;
+	}
+
+	public void setId_student(String id_student) {
+		this.id_student = id_student;
 	}
 
 }

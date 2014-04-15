@@ -19,7 +19,7 @@ import com.gachon.swdm.ths.web.util.LoginChecker;
 @SessionAttributes("member")
 public class MainController {
 	private static final Logger logger = LoggerFactory.getLogger(MainController.class);
-	private String[] selector = new String[]{"main/userInfo","main/notice","main/myClass","main/configuration"};
+	private String[] selector = new String[]{"main/userInfo","main/schoolNotice/notice","main/myClass","main/configuration"};
 	
 	@RequestMapping(value="/main.action", method=RequestMethod.GET)
 	public String select(@RequestParam(value = "selection")int opt, Locale locale, Model model)
@@ -35,6 +35,11 @@ public class MainController {
 		if(opt == 0)//user Information
 		{
 			model.addAttribute("editedUser", new EditedUser());
+		}
+		else if(opt==1)
+		{
+			model.addAttribute("type",0);
+			model.addAttribute("page",0);
 		}
 		System.out.println("hello");
 		return selector[opt];

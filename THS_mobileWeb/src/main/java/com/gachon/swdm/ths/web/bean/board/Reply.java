@@ -1,5 +1,8 @@
 package com.gachon.swdm.ths.web.bean.board;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 public abstract class Reply {
 	//indexing 두개가 있어야해
 	//foreign key 하나, 얘꺼 하나...
@@ -8,11 +11,12 @@ public abstract class Reply {
 	private String contents;//text
 	private String ip;//varchar(40)
 	private long date_written;//bigint unsigned
-	private String id_user;//varchar(40)
+	private String id_writer;//varchar(40)
 	
 
 	private long board_date; //bigint unsigned
 	private String board_writer;//varchar(40)
+	
 	public String getContents() {
 		return contents;
 	}
@@ -43,12 +47,18 @@ public abstract class Reply {
 	public void setBoard_writer(String board_writer) {
 		this.board_writer = board_writer;
 	}
-	public String getId_user() {
-		return id_user;
+	public String getId_writer() {
+		return id_writer;
 	}
-	public void setId_user(String id_user) {
-		this.id_user = id_user;
+	public void setId_writer(String id_writer) {
+		this.id_writer = id_writer;
 	}
+	public String getDateForRecord(){
+		SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm ss.SSS");
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTimeInMillis(date_written);
 	
+		return format.format(calendar.getTime());
+	}
 
 }

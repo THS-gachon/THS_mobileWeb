@@ -22,13 +22,12 @@ public class SchoolBoard extends Board{
 	 	title varchar(200),
 	 	contents text,
 	 	ip varchar(40),
+	 	readNum integer,
 	 	primary key(type, date_written, id_user),
 	 	foreign key(id_user) references user(id_login),
 	 	INDEX index1 (type, date_written, id_user)
 	 )
 	 
-	 
-	  
 	 */
 
 

@@ -1,5 +1,5 @@
 package com.gachon.swdm.ths.web.controller;
 
-public class MyClassController {
+public class MyClassController  {
 
 }

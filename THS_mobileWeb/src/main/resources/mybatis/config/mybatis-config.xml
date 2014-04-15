@@ -12,10 +12,14 @@
 
 	<typeAliases>
 		<typeAlias alias="User" type="com.gachon.swdm.ths.web.bean.User"></typeAlias>
+		<typeAlias alias="SchoolBoard" type="com.gachon.swdm.ths.web.bean.board.SchoolBoard"></typeAlias>
+		<typeAlias alias="SchoolBoardReply" type="com.gachon.swdm.ths.web.bean.board.SchoolBoardReply"></typeAlias>
 	</typeAliases>
 
 	<mappers>
 		<mapper resource="mybatis/mapper/user.xml"></mapper>
+		<mapper resource="mybatis/mapper/school_board.xml"></mapper>
+		<mapper resource="mybatis/mapper/school_board_reply.xml"></mapper>
 	</mappers>
 
 </configuration>

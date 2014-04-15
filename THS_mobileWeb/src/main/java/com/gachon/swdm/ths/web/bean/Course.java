@@ -9,16 +9,31 @@ public class Course {
 	private String dept_name;
 	private int credits;
 	
+	private String building;
+	private String room_number;
+	private String time;
+	
+	
 	/*
+	 * 수강생, 정원, 강의실, 시간,
+	 * 
+	 */
+	
+	/*//alter 필요..
 	 create table course(
 	 	id_course integer,
 	 	year tinyInt,
 	 	semester tinyInt,
 	 	title varchar(60),
 	 	dept_name varchar(40),
+	 	building varchar(20),
+	 	room_number varchar(8),
 	 	credits tinyInt,
+	 	time_slot varchar(15),
+	 	
 	 	primary key(year,semester,id_course),
 	 	foreign key(dept_name) references department(dept_name),
+	 	foreign key(building, room_number) references class_room (building, room_number),
 	 	INDEX index1(year, semester, id_course)
 	 )
 	 */
@@ -72,6 +87,36 @@ public class Course {
 
 	public void setId_course(int id_course) {
 		this.id_course = id_course;
+	}
+
+
+	public String getBuilding() {
+		return building;
+	}
+
+
+	public void setBuilding(String building) {
+		this.building = building;
+	}
+
+
+	public String getRoom_number() {
+		return room_number;
+	}
+
+
+	public void setRoom_number(String room_number) {
+		this.room_number = room_number;
+	}
+
+
+	public String getTime() {
+		return time;
+	}
+
+
+	public void setTime(String time) {
+		this.time = time;
 	}
 
 

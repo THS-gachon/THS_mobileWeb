@@ -22,8 +22,8 @@
 				code="label.mainPage_userInfo" /></a>
 	</h2>
 	<h2>
-		<a href="main.action?selection=1"><spring:message
-				code="label.mainPage_notice" /></a>
+		<a href="schoolBoard.action?type=0&page=0"><spring:message
+				code="label.mainPage_schoolNotice" /></a>
 	</h2>
 	<h2>
 		<a href="main.action?selection=2"><spring:message

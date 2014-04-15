@@ -59,4 +59,5 @@ public class UserDAOImpl implements UserDAO{
 		sqlSession.delete(NS+"deleteUser", loginId);
 	}
 
+
 }

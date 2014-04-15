@@ -11,22 +11,23 @@
 <head>
 <meta charset="utf-8">
 <title>My Page</title>
+<link rel="stylesheet" href="<c:url value="/css/main_layout.css"/>" type="text/css" />
 </head>
 <body>
 
 	<div id="header"></div>
 
-	<div id="body" style="width:100%; height:100%;">
-		<div id="leftMenu" style="float:left;">
-			<jsp:include page="main_leftMenu.jsp" /><!-- menu page -->			
+	<div id="body">
+		<div id="nav">
+			<jsp:include page="main_leftnav.jsp" /><!-- menu page -->			
 		</div>
-		<div id="contents" style="float:right;">
+		<div id="contents" >
 			<form:form modelAttribute="editedUser" action="myPage.action"
 				method="POST">
 
 				<spring:message code="label.user_loginId" />
-				<form:input disabled="true" path="loginId" value="${member.loginId}" />
-				<br />
+				<form:input readonly="true" path="loginId" value="${member.loginId}" />
+				<br/>
 
 				<!-- spring if else tag -->
 				<c:choose>
@@ -37,7 +38,7 @@
 						<spring:message code="label.user_professorId" />
 					</c:otherwise>
 				</c:choose>
-				<form:input disabled="true" path="personId"
+				<form:input readonly="true" path="personId"
 					value="${member.personId}" />
 				<br />
 
@@ -52,7 +53,7 @@
 
 
 				<spring:message code="label.user_name" />
-				<form:input disabled="true" path="name" value="${member.name}" />
+				<form:input  readonly="true" path="name" value="${member.name}" />
 				<br />
 
 
@@ -62,8 +63,7 @@
 
 
 				<spring:message code="label.user_department" />
-				<form:input disabled="true" path="dept_name"
-					value="${member.dept_name}" />
+				<form:input readonly="true" path="dept_name" value="${member.dept_name}" />
 				<br />
 
 				<input type="submit"

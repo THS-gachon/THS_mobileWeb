@@ -9,10 +9,12 @@ public class Teaches {
 	 	year tinyInt,
 	 	semester tinyInt,
 	 	id_course integer,
+		summary text,
 	 	primary key(id_professor, year, semester, id_course),
 	 	foreign key(id_professor) references user(id_login),
 	 	foreign key(year, semester, id_course) references course(year, semester, id_course),
-	 	INDEX index1 (year,semester,id_course)
+	 	INDEX index1 (year, semester, id_course),
+	 	INDEX index2 (id_professor, year, semester)
 	 	);
 	 	 
 	 */
@@ -22,6 +24,9 @@ public class Teaches {
 
 	private int semester;
 	private int year;
+	
+	private String summary;
+	
 	
 	public Teaches(){
 		
@@ -49,6 +54,12 @@ public class Teaches {
 	}
 	public void setId_course(int id_course) {
 		this.id_course = id_course;
+	}
+	public String getSummary() {
+		return summary;
+	}
+	public void setSummary(String summary) {
+		this.summary = summary;
 	}
 
 

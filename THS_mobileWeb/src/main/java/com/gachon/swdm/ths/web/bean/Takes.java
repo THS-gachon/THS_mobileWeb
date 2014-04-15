@@ -11,8 +11,9 @@ public class Takes {
 	 	grade float,
 	 	primary key(id_student, year, semester, id_course),
 	 	foreign key(id_student) references user(id_login),
-	 	foreign key(year, semester, id_course) references course(year,semester,id_course),	 	
-	 	INDEX index1(id_student, year, semester)
+	 	foreign key(year, semester, id_course) references course(year,semester,id_course),
+	 	INDEX index1 (year, semester, id_course),
+	 	INDEX index2 (id_student, year, semester)
 	 );
 	 
 	 */

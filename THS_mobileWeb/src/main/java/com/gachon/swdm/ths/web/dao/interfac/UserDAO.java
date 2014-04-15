@@ -12,4 +12,6 @@ public interface UserDAO {
 	public User saveUser(User user);
 	public User updateUser(User user);
 	public void deleteUser(String loginId);
+	
+	
 }

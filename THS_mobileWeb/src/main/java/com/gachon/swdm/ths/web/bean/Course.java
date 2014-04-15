@@ -12,7 +12,7 @@ public class Course {
 	private String building;
 	private String room_number;
 	private String time;
-	
+	  
 	
 	/*
 	 * 수강생, 정원, 강의실, 시간,

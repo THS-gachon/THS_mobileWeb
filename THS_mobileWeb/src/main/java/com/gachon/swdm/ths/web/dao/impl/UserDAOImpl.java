@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.gachon.swdm.ths.web.bean.Course;
 import com.gachon.swdm.ths.web.bean.User;
 import com.gachon.swdm.ths.web.dao.interfac.UserDAO;
 
@@ -57,6 +58,12 @@ public class UserDAOImpl implements UserDAO{
 		//
 		
 		sqlSession.delete(NS+"deleteUser", loginId);
+	}
+	
+	@Override
+	public List<User> getStudentsByCourse(Course course)
+	{
+		return sqlSession.selectList(NS+"getStudentsByCourse",course);
 	}
 
 

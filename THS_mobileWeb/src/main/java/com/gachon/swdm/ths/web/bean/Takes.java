@@ -5,7 +5,7 @@ public class Takes {
 	/*
 	 create table takes(
 	 	id_student varchar(40),
-	 	year tinyInt,
+	 	year integer,
 	 	semester tinyInt,
 	 	id_course integer,
 	 	grade float,
@@ -21,7 +21,7 @@ public class Takes {
 	private int id_course;
 	private int semester;
 	private int year;
-	private int grade;
+	private float grade;
 	
 	public Takes(){
 		
@@ -39,13 +39,8 @@ public class Takes {
 	public void setYear(int year) {
 		this.year = year;
 	}
-	public int getGrade() {
-		return grade;
-	}
-	public void setGrade(int grade) {
-		this.grade = grade;
-	}
-
+	
+	
 
 
 	public int getId_course() {
@@ -62,6 +57,14 @@ public class Takes {
 
 	public void setId_student(String id_student) {
 		this.id_student = id_student;
+	}
+
+	public float getGrade() {
+		return grade;
+	}
+
+	public void setGrade(float grade) {
+		this.grade = grade;
 	}
 
 }

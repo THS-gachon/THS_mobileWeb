@@ -2,6 +2,7 @@ package com.gachon.swdm.ths.web.service.database;
 
 import java.util.List;
 
+import com.gachon.swdm.ths.web.bean.Course;
 import com.gachon.swdm.ths.web.bean.User;
 
 public interface UserService {
@@ -11,5 +12,6 @@ public interface UserService {
 	public User save(User user);
 	public User update(User user);
 	public void delete(String id);
+	public List<User> getStudentsByCourse(Course course);
 	
 }

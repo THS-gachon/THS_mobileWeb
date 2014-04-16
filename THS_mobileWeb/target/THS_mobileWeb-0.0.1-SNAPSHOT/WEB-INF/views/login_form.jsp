@@ -21,5 +21,7 @@
 		</form:form>
 	</body>
 	<a href="signUp.action"><spring:message code="label.signUp"/> </a>
+	<c:if test="${member != null}"><a href="logOut.action"><spring:message code="label.logOut"/></a></c:if>
+
 	
 </html>

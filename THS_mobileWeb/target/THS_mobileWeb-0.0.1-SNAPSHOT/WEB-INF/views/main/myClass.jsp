@@ -17,7 +17,7 @@
 
 	<div id="body" style="width:100%; height:100%;">
 		<div id="leftMenu" style="float:left;">
-			<jsp:include page="main_leftMenu.jsp" /><!-- menu page -->			
+			<jsp:include page="main_leftnav.jsp" /><!-- menu page -->			
 		</div>
 		<div id="contents" style="float:right;">
 

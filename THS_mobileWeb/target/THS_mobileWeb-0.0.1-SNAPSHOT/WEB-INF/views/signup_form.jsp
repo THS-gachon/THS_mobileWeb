@@ -18,7 +18,7 @@
 				var id = document.getElementById("id").value;
 				alert(id);
 				
-				//ajax id check index 걸어야 겠죠?
+
 			}
 		</script>
 	</head> 

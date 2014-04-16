@@ -8,7 +8,9 @@ import com.gachon.swdm.ths.web.bean.board.SchoolBoard;
 public interface SchoolBoardService {
 	public List<SchoolBoard> getSchoolBoardList(HashMap<String, Integer> hashmap);
 	public SchoolBoard getSchoolBoard(HashMap<String, Object> hashmap);
-	public SchoolBoard saveSchoolBoard(SchoolBoard schoolBoard);
+	public SchoolBoard saveSchoolBoard(SchoolBoard schoolBoard) throws 
+	RuntimeException;
+	public void updateReadNum(HashMap<String,Object> hashmap);
 	public SchoolBoard updateSchoolBoard(SchoolBoard schoolBoard);
 	public void deleteSchoolBoard(HashMap<String,Object> hashmap);
 	public int getCount(int type);

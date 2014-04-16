@@ -107,7 +107,7 @@ public class SchoolNoticeController {
 	@RequestMapping(value = "/schoolBoardWrite.action", method = RequestMethod.POST)
 	public String writeSchoolNotice(
 			@ModelAttribute("schoolBoard") SchoolBoard schoolBoard,
-			HttpServletRequest request, Locale locale, Model model) {
+			HttpServletRequest request, Locale locale, Model model) throws Exception {
 
 		Calendar calendar = Calendar.getInstance();
 

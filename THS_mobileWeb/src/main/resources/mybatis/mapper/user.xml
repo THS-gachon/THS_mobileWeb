@@ -19,6 +19,10 @@
 		SELECT * FROM user
 	</select>
 	
+	<select id="getStudentsByCourse" resultMap="UserResult" parameterType="Course">
+		SELECT loginId, personId, name, phoneNumber, position, dept_name from user, takes where id_login = id_student and year = #{year} and semester = #{semester} and id_course = #{id_course}
+	</select>
+	
 	<select id="getUser" resultMap="UserResult" parameterType="String">
 		SELECT * FROM user WHERE id_login = #{loginId}
 	</select>

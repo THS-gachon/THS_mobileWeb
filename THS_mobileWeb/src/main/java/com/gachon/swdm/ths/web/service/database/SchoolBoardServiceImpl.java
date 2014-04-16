@@ -24,29 +24,53 @@ public class SchoolBoardServiceImpl implements SchoolBoardService{
 	}
 
 	@Override
-	@Transactional
+	@Transactional(rollbackFor = Exception.class)
 	public SchoolBoard getSchoolBoard(HashMap<String, Object> hashmap) {
 	
 		schoolBoardDAO.updateReadNum(hashmap);
 		return schoolBoardDAO.getSchoolBoard(hashmap);
 	}
-
+	
 	@Override
-	@Transactional
-	public SchoolBoard saveSchoolBoard(SchoolBoard schoolBoard) {
-		
-		return schoolBoardDAO.saveSchoolBoard(schoolBoard);
+	@Transactional(rollbackFor = Exception.class)
+	public void updateReadNum(HashMap<String,Object> hashmap)
+	{
+		schoolBoardDAO.updateReadNum(hashmap);
 	}
 
 	@Override
-	@Transactional
+	@Transactional(rollbackFor = Exception.class)
+	public SchoolBoard saveSchoolBoard(SchoolBoard schoolBoard) throws 
+	RuntimeException{
+	
+		SchoolBoard result =  schoolBoardDAO.saveSchoolBoard(schoolBoard);
+		
+		/*HashMap<String,Object> hashmap = new HashMap<String,Object>();
+		hashmap.put("type", schoolBoard.getType());
+		hashmap.put("date_written", schoolBoard.getDate_written());
+		hashmap.put("id_user", schoolBoard.getId_writer());
+		SchoolBoard test = schoolBoardDAO.getSchoolBoard(hashmap);
+		
+		System.out.println("test: "+test.getTitle());
+		try {
+			Thread.sleep(10000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	*/
+		return result;
+	}
+
+	@Override
+	@Transactional(rollbackFor = Exception.class)
 	public SchoolBoard updateSchoolBoard(SchoolBoard schoolBoard) {
 	
 		return schoolBoardDAO.updateSchoolBoard(schoolBoard);
 	}
 
 	@Override
-	@Transactional
+	@Transactional(rollbackFor = Exception.class)
 	public void deleteSchoolBoard(HashMap<String, Object> hashmap) {
 		
 		schoolBoardDAO.deleteSchoolBoard(hashmap);

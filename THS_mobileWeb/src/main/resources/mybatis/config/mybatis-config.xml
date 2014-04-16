@@ -14,12 +14,18 @@
 		<typeAlias alias="User" type="com.gachon.swdm.ths.web.bean.User"></typeAlias>
 		<typeAlias alias="SchoolBoard" type="com.gachon.swdm.ths.web.bean.board.SchoolBoard"></typeAlias>
 		<typeAlias alias="SchoolBoardReply" type="com.gachon.swdm.ths.web.bean.board.SchoolBoardReply"></typeAlias>
+		<typeAlias alias="Takes" type="com.gachon.swdm.ths.web.bean.Takes"></typeAlias>
+		<typeAlias alias="Course" type="com.gachon.swdm.ths.web.bean.Course"></typeAlias>
+		<typeAlias alias="Department" type="com.gachon.swdm.ths.web.bean.Department"></typeAlias>
 	</typeAliases>
 
 	<mappers>
 		<mapper resource="mybatis/mapper/user.xml"></mapper>
 		<mapper resource="mybatis/mapper/school_board.xml"></mapper>
 		<mapper resource="mybatis/mapper/school_board_reply.xml"></mapper>
+		<mapper resource="mybatis/mapper/takes.xml"></mapper>
+		<mapper resource="mybatis/mapper/course.xml"></mapper>
+		<mapper resource="mybatis/mapper/department.xml"></mapper>
 	</mappers>
 
 </configuration>

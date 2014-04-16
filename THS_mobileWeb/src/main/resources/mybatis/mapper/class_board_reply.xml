@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.gachon.swdm.ths.web.bean.board.ClassBoardReply">
+
+	<resultMap type="ClassBoardReply" id="ReplyResult">
+		<id property="year" column="year"/>
+		<id property="semester" column="semester"/>
+		<id property="id_course" column="id_course"/>
+		<id property="board_type" column="board_type" />
+		<id property="board_date" column="board_date" />
+		
+		<id property="board_writer" column="board_writer" />
+		<id property="date_written" column="date_written" />
+		<id property="id_writer" column="id_user" />
+		<result property="contents" column="contents" />
+		<result property="ip" column="ip" />
+		<result property="name_writer" column="name_writer"/>
+
+	</resultMap>
+
+	<insert id="saveClassBoardReply" parameterType="ClassBoardReply">
+		INSERT INTO
+		class_board_reply(year, semester, id_course, board_type,
+		board_date,board_writer,date_written,id_user,contents,ip)
+		VALUES(#{year}, #{semester}, #{id_course}, #{board_type},#{board_date},#{board_writer},#{date_written},#{id_writer},#{contents},#{ip})
+	</insert>
+	<select id="getList" parameterType="ClassBoardReply" resultMap="ReplyResult">
+		SELECT a.year, a.semester, a.id_course, a.board_type, a.board_date, a.board_writer, a.date_written, a.id_user, a.contents, a.ip, b.name as name_writer FROM (SELECT * FROM class_board_reply WHERE year=#{year} and semester=#{semester} and id_course = #{id_course} and board_type = #{board_type} AND board_date = #{board_date} AND board_writer = #{board_writer} ORDER BY date_written desc) a JOIN user b ON a.id_user = b.id_login
+	</select>
+	
+	<delete id="deleteClassBoardReply" parameterType="ClassBoardReply">
+		DELETE FROM
+		class_board_reply WHERE year=#{year} and semester = #{semester} and id_course =#{id_course} and board_type = #{board_type} and board_date =
+		#{board_date} and board_writer = #{board_writer} and date_written =
+		#{date_written} and id_user = #{id_writer}
+	</delete>
+</mapper>
+
+
+

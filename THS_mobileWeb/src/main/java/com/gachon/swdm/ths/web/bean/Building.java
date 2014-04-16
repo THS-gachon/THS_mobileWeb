@@ -13,7 +13,8 @@ public class Building {
 	 primary key(building)
 	 )
 	 
-	 insert into building(building,latitude,longitude) values("새롬관",37.450904,127.127354);
+	 INSERT INTO building(building,latitude,longitude) VALUES("새롬관",37.450904,127.127354);
+	 INSERT INTO building(building,latitude,longitude) VALUES("웅지관",37.449494, 127.129401);
 	 
 	 */
 	

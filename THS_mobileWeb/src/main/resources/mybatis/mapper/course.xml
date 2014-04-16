@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.gachon.swdm.ths.web.bean.Course">
+
+	<resultMap type="Course" id="courseResult">
+		<id property="year" column="year"/>
+		<id property="semester" column="semester"/>
+		<id property="id_course" column="id_course"/>
+		<result property="title" column="title"/>
+		<result property="dept_name" column="dept_name"/>
+		<result property="credits" column="credits"/>
+		<result property="building" column="building"/>
+		<result property="room_number" column="room_number"/>
+		<result property="time" column="time_slot"/>
+		<result property="currentNum" column="currentNum"/>
+		<result property="maxNum" column="maxNum"/>
+ 	</resultMap>
+
+
+	<select id="getCourseByTime" resultMap="courseResult" parameterType="Course">
+		SELECT * FROM course WHERE year = #{year} and semester = #{semester}
+	</select>
+	
+	<select id="getCourseByDepartment" resultMap="courseResult" parameterType="Course">
+		SELECT * FROM course WHERE year = #{year} and semester = #{semester} and dept_name = #{dept_name}
+	</select>
+	
+	
+	<select id="getCourseByUser" resultMap="courseResult" parameterType="Takes">
+		SELECT takes.year as year, takes.semester as semester, takes.id_course as id_course, title, dept_name, credits, building, room_number, time_slot, currentNum, maxNum FROM takes, course WHERE takes.year = course.year and takes.semester = course.semester and takes.id_course = course.id_course and takes.id_student = #{id_student} and takes.year = #{year} and takes.semester = #{semester}
+	</select>
+	
+	<select id="getCourse" resultMap="courseResult" parameterType="Course">
+		SELECT * FROM course WHERE year = #{year} and semester = #{semester} and id_course = #{id_course}
+	</select>
+	
+	<update id="takeCourse" parameterType="Course">
+		UPDATE course SET currentNum = currentNum+1 where year = #{year} and semester = #{semester} and id_course = #{id_course}
+	</update>
+	
+	<update id="dropCourse" parameterType="Course">
+		UPDATE course SET currentNum = currentNum-1 where year = #{year} and semester = #{semester} and id_course = #{id_course}
+	</update>
+	
+	
+
+	
+	
+
+</mapper>
+
+
+

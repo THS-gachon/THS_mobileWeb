@@ -6,6 +6,9 @@ public class ClassBoard extends Board{
 	private int year;
 	private int semester;
 	private int type;
+	private String name_writer;
+	private int start;
+	private int end;
 	
 	/*
 	 	private String id_writer;//references User..
@@ -24,10 +27,11 @@ public class ClassBoard extends Board{
 	 		ip varchar(40),
 	 		
 	 		
-	 		year tinyInt,
+	 		year integer,
 	 		semester tinyInt,
 	 		id_course integer,
 	 		type tinyInt,
+	 		readNum integer,
 	 		
 	 		primary key(year, semester, id_course, type, date_written, id_user),
 	 		foreign key(year, semester, id_course) references course(year, semester, id_course),
@@ -60,6 +64,24 @@ public class ClassBoard extends Board{
 	}
 	public void setType(int type) {
 		this.type = type;
+	}
+	public String getName_writer() {
+		return name_writer;
+	}
+	public void setName_writer(String name_writer) {
+		this.name_writer = name_writer;
+	}
+	public int getStart() {
+		return start;
+	}
+	public void setStart(int start) {
+		this.start = start;
+	}
+	public int getEnd() {
+		return end;
+	}
+	public void setEnd(int end) {
+		this.end = end;
 	}
 	
 

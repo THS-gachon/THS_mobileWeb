@@ -19,9 +19,14 @@
 		SELECT * FROM user
 	</select>
 	
+	<select id="getStudentsByCourse" resultMap="UserResult" parameterType="Course">
+		SELECT loginId, personId, name, phoneNumber, position, dept_name from user, takes where id_login = id_student and year = #{year} and semester = #{semester} and id_course = #{id_course}
+	</select>
+	
 	<select id="getUser" resultMap="UserResult" parameterType="String">
 		SELECT * FROM user WHERE id_login = #{loginId}
 	</select>
+	
 	
 	<insert id="saveUser" parameterType="User">
 		 INSERT INTO user(id_login,id_person,pw,name,phone_number,position,dept_name) 
@@ -36,6 +41,13 @@
 	<delete id="deleteUser" parameterType="String">
 		DELETE FROM user WHERE id_login = #{loginId}
 	</delete>
+	
+	
+	<!-- additional function -->
+	<select id="getProfessorByCourse" resultMap="UserResult" parameterType="Teaches">
+		SELECT a.id_login, a.id_person, a.name, a.phone_number, a.position, a.dept_name FROM user a JOIN (SELECT id_professor FROM teaches WHERE year=#{year} and semester = #{semester} and id_course = #{id_course}) b ON a.id_login = b.id_professor
+	</select>
+	
 
 </mapper>
 

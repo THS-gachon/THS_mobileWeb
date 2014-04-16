@@ -12,6 +12,16 @@ public class User {
 	private String phoneNumber;//varchar(20)
 	private int position;//0학생//1. short int
 	private String dept_name;//varchar(40)
+	/*
+	 	INSERT INTO user(id_login,id_person,pw,name,phone_number,position,dept_name) 
+	 		VALUES ("hyrjo",199810003, "123", "조형래","031-750-5180","1","경영학과");
+	 	INSERT INTO user(id_login,id_person,pw,name,phone_number,position,dept_name) 
+	 		VALUES ("cykim",201010002, "123", "김철연","031-750-8658","1","소프트웨어 설계 경영학과");
+	 	INSERT INTO user(id_login,id_person,pw,name,phone_number,position,dept_name) 
+	 		VALUES ("wjhan",201110001, "123", "한우진"," 031-750-8668","1","소프트웨어 설계 경영학과");
+	 
+	 */
+	
 	
 	/*
 	 department must be created

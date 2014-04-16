@@ -26,12 +26,15 @@
 				code="label.mainPage_schoolNotice" /></a>
 	</h2>
 	<h2>
-		<a href="main.action?selection=2"><spring:message
-				code="label.mainPage_myClass" /></a>
+	<a href="classList.action?id_user=${member.loginId}"><spring:message
+			code="label.mainPage_course_courseList" /></a>
 	</h2>
 	<h2>
 		<a href="main.action?selection=3"><spring:message
 				code="label.mainPage_configuration" /></a>
 	</h2>
+	
+	<h2><a href="courseView.action?department=all&id_student=${member.loginId}"><spring:message
+				code="label.mainPage_course_courseEnroll" /></a></h2>
 </body>
 </html>

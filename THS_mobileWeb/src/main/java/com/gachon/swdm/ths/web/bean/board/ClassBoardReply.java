@@ -1,12 +1,13 @@
 package com.gachon.swdm.ths.web.bean.board;
 
-public class ClassReply extends Reply{
+public class ClassBoardReply extends Reply{
 	
 	
 	private int id_course;
 	private int year;
 	private int semester;
 	private int board_type;
+	private String name_writer;
 	
 	
 	/*
@@ -16,13 +17,12 @@ public class ClassReply extends Reply{
 	 	ip varchar(40),
 	 	contents text,
 	 	
-	 	year tinyInt,
+	 	year integer,
 	 	semester tinyInt,
 	 	id_course integer,
 	 	board_type tinyInt,
 	 	board_date bigInt unsigned,
 	 	board_writer varchar(40),
-	 	
 	 	
 	 	primary key(year, semester, id_course, board_type, board_date, board_writer, date_written, id_user),
 	 	foreign key(year,semester,id_course, board_type, board_date, board_writer)
@@ -58,7 +58,13 @@ public class ClassReply extends Reply{
 	public void setBoard_type(int board_type) {
 		this.board_type = board_type;
 	}
-	
+	public String getName_writer() {
+		return name_writer;
+	}
+	public void setName_writer(String name_writer) {
+		this.name_writer = name_writer;
+	}
+
 
 
 	

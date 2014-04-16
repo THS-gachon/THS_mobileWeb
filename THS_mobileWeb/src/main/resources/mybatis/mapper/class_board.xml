@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.gachon.swdm.ths.web.bean.board.ClassBoard">
+
+	<resultMap type="ClassBoard" id="BoardResult">
+		
+		<id property="year" column="year"/>
+		<id property="semester" column="semester"/>
+		<id property="id_course" column="id_course"/>
+		<id property="type" column="type" />
+		<id property="date_written" column="date_written" />
+		<id property="id_writer" column="id_user" />
+		<result property="title" column="title" />
+		<result property="contents" column="contents" />
+		<result property="ip" column="ip" />
+		<result property="readNum" column="readNum"/>
+		<result property="name_writer" column="name_writer"/>
+	</resultMap>
+	
+	<select id="getClassBoardList" resultMap="BoardResult"
+		parameterType="ClassBoard">
+		SELECT c.year, c.semester, c.id_course, c.type as type, c.date_written as date_written, c.id_user as id_user, c.title as title, c.readNum as readNum, user.name as name_writer FROM user, (SELECT year, semester, id_course, type, date_written, id_user, title, readNum FROM
+		class_board WHERE year=#{year} and semester=#{semester} and id_course = #{id_course} and type = #{type} ORDER BY date_written desc LIMIT
+		#{start}, #{end}) c WHERE c.id_user = user.id_login;
+	</select>
+
+	<select id="getClassBoard" resultMap="BoardResult"
+		parameterType="ClassBoard">
+		SELECT a.*, b.name as name_writer FROM (SELECT * FROM class_board WHERE year = #{year} and semester = #{semester} and id_course = #{id_course} and type = #{type} and date_written =
+		#{date_written} and id_user = #{id_writer}) a JOIN user b on a.id_user = b.id_login
+	</select>
+
+	<insert id="saveClassBoard" parameterType="ClassBoard">
+		INSERT INTO
+		class_board(year, semester, id_course, type, date_written, id_user, title, contents, ip, readNum)
+		values(#{year}, #{semester}, #{id_course}, #{type}, #{date_written}, #{id_writer}, #{title}, #{contents},
+		#{ip}, 0)
+	</insert>
+
+	<update id="updateClassBoard" parameterType="ClassBoard">
+		UPDATE class_board SET title=#{title}, contents=#{contents}, ip=#{ip} WHERE
+		year=#{year} and semester=#{semester} and id_course = #{id_course} and type=#{type} and date_written=#{date_written} and id_user=#{id_writer}
+	</update>
+	
+	<update id="updateReadNum" parameterType="ClassBoard">
+		UPDATE class_board SET readNum = readNum + 1 WHERE year = #{year} and semester = #{semester} and id_course = #{id_course} and type=#{type} and date_written=#{date_written} and id_user=#{id_writer}
+	</update>
+
+	<delete id="deleteClassBoard" parameterType="ClassBoard">
+		DELETE FROM
+		class_board WHERE year=#{year} and semester=#{semester} and id_course = #{id_course} and type=#{type} and date_written=#{date_written} and id_user=#{id_writer}
+	</delete>
+
+	<select id="getCount" parameterType="ClassBoard" resultType="int">
+		SELECT count(*) FROM class_board WHERE year=#{year} and semester = #{semester} and id_course = #{id_course} and type = #{type}
+	</select>
+</mapper>
+
+
+

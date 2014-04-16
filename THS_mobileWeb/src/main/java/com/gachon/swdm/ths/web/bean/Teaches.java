@@ -6,7 +6,7 @@ public class Teaches {
 	/*
 	 	create table teaches(
 	 	id_professor varchar(40),
-	 	year tinyInt,
+	 	year integer,
 	 	semester tinyInt,
 	 	id_course integer,
 		summary text,
@@ -17,6 +17,13 @@ public class Teaches {
 	 	INDEX index2 (id_professor, year, semester)
 	 	);
 	 	 
+	 */
+	
+	/*
+	 	INSERT INTO teaches(id_professor, year, semester, id_course,summary) VALUES('hyrjo',2014,1,10622001,'null');
+	 	INSERT INTO teaches(id_professor, year, semester, id_course,summary) VALUES('cykim',2014,1,06480001,'null');
+	 	INSERT INTO teaches(id_professor, year, semester, id_course,summary) VALUES('wjhan',2014,1,09031001,'null');
+	 	INSERT INTO teaches(id_professor, year, semester, id_course,summary) VALUES('cykim',2014,1,11438001,'null');
 	 */
 	private String id_professor;
 	

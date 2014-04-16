@@ -22,11 +22,11 @@ public class PageCalculator {
 		if (totalCount % 10 > 0)
 			totalPages++;
 		
-		System.out.println("total Pages: "+totalPages);
+		//System.out.println("total Pages: "+totalPages);
 
 		startPage = page / 5;
 		startPage *=5;
-		System.out.println("start Page "+startPage);
+		//System.out.println("start Page "+startPage);
 
 		if ((totalPages - startPage) >= 5) {
 			endPage = startPage + 4;
@@ -35,6 +35,10 @@ public class PageCalculator {
 			}
 		} else {
 			endPage = startPage + totalPages - startPage - 1;
+			if(endPage<0)
+			{
+				endPage = 0;
+			}
 		}
 
 		result.put("more", more);

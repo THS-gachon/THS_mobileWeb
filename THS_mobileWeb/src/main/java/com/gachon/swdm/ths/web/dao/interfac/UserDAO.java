@@ -3,6 +3,7 @@ package com.gachon.swdm.ths.web.dao.interfac;
 import java.util.List;
 
 import com.gachon.swdm.ths.web.bean.Course;
+
 import com.gachon.swdm.ths.web.bean.Teaches;
 import com.gachon.swdm.ths.web.bean.User;
 
@@ -16,5 +17,6 @@ public interface UserDAO {
 	public void deleteUser(String loginId);
 	public List<User> getStudentsByCourse(Course course);
 	public User getProfessorByCourse(Teaches teaches);
+
 	
 }

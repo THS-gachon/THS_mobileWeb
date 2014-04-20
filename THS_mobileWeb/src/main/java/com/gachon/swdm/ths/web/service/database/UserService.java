@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.gachon.swdm.ths.web.bean.Course;
 import com.gachon.swdm.ths.web.bean.Teaches;
+
 import com.gachon.swdm.ths.web.bean.User;
 
 public interface UserService {

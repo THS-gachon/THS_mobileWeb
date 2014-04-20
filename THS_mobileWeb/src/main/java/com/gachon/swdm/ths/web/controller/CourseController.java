@@ -1,5 +1,6 @@
 package com.gachon.swdm.ths.web.controller;
 
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -32,9 +33,12 @@ import com.gachon.swdm.ths.web.service.database.DepartmentService;
 import com.gachon.swdm.ths.web.service.database.TeachesService;
 import com.gachon.swdm.ths.web.util.PageCalculator;
 
+
+
 @Controller
 @SessionAttributes("member")
 public class CourseController {
+
 
 	private static final Logger logger = LoggerFactory
 			.getLogger(MainController.class);
@@ -282,6 +286,8 @@ public class CourseController {
 		return semester;
 
 	}
+
+
 	
 }
 

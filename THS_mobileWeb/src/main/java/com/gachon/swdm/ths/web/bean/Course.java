@@ -17,6 +17,8 @@ public class Course {
 	private int currentNum;
 	
 	private User professor;
+	  
+
 	
 	/*
 	 * 수강생, 정원, 강의실, 시간,
@@ -58,6 +60,7 @@ public class Course {
 	 values(2014 , 1, 11438001, '졸업작품3', '소프트웨어 설계 경영학과', '새롬관', '304', 3, '39,310', 0, 4);
 	 
 	 */
+
 
 	public Course()
 	{
@@ -173,6 +176,5 @@ public class Course {
 	public void setProfessor(User professor) {
 		this.professor = professor;
 	}
-
 
 }

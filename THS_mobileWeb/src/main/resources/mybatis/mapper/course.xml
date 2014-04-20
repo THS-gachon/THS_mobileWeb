@@ -44,7 +44,25 @@
 	<update id="dropCourse" parameterType="Course">
 		UPDATE course SET currentNum = currentNum-1 where year = #{year} and semester = #{semester} and id_course = #{id_course}
 	</update>
+<!-- 
+=======
+	<select id="getCourseByUser" resultMap="courseResult" parameterType="Takes">
+		SELECT takes.year as year, takes.semester as semester, takes.id_course as id_course, title, dept_name, credits, building, room_number, time_slot, currentNum, maxNum FROM takes, course WHERE takes.year = course.year and takes.semester = course.semester and takes.id_course = course.id_course and takes.id_student = #{id_student} and takes.year = #{year} and takes.semester = #{semester}
+	</select>
 	
+	<select id="getCourse" resultMap="courseResult" parameterType="Course">
+		SELECT * FROM course WHERE year = #{year} and semester = #{semester} and id_course = #{id_course}
+	</select>
+	
+	<update id="takeCourse" parameterType="Course">
+		UPDATE course SET currentNum = currentNum+1 where year = #{year} and semester = #{semester} and id_course = #{id_course}
+	</update>
+	
+	<update id="dropCourse" parameterType="Course">
+		UPDATE course SET currentNum = currentNum-1 where year = #{year} and semester = #{semester} and id_course = #{id_course}
+	</update>
+>>>>>>> branch 'master' of https://voidbag@github.com/THS-gachon/THS_mobileWeb.git
+ -->
 	
 
 	

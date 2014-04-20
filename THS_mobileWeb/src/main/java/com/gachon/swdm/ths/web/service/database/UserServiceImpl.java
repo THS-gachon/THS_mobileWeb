@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.gachon.swdm.ths.web.bean.Course;
 import com.gachon.swdm.ths.web.bean.Teaches;
+
 import com.gachon.swdm.ths.web.bean.User;
 import com.gachon.swdm.ths.web.dao.interfac.UserDAO;
 
@@ -61,5 +62,6 @@ public class UserServiceImpl implements UserService{
 	{
 		return userDAO.getProfessorByCourse(teaches);
 	}
+
 
 }

@@ -21,8 +21,6 @@
 	<delete id="deleteTakes" parameterType="Takes">
 		DELETE FROM takes where id_student = #{id_student} and year = #{year} and semester = #{semester} and id_course = #{id_course}
 	</delete>
-	
-	
 
 </mapper>
 

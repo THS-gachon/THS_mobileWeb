@@ -17,6 +17,7 @@
 		<typeAlias alias="Takes" type="com.gachon.swdm.ths.web.bean.Takes"></typeAlias>
 		<typeAlias alias="Course" type="com.gachon.swdm.ths.web.bean.Course"></typeAlias>
 		<typeAlias alias="Department" type="com.gachon.swdm.ths.web.bean.Department"></typeAlias>
+
 		<typeAlias alias="ClassBoard" type="com.gachon.swdm.ths.web.bean.board.ClassBoard"></typeAlias>
 		<typeAlias alias="ClassBoardReply" type="com.gachon.swdm.ths.web.bean.board.ClassBoardReply"></typeAlias>
 		<typeAlias alias="Teaches" type="com.gachon.swdm.ths.web.bean.Teaches"></typeAlias>
@@ -30,6 +31,7 @@
 		<mapper resource="mybatis/mapper/takes.xml"></mapper>
 		<mapper resource="mybatis/mapper/course.xml"></mapper>
 		<mapper resource="mybatis/mapper/department.xml"></mapper>
+
 		<mapper resource="mybatis/mapper/class_board_reply.xml"></mapper>
 		<mapper resource="mybatis/mapper/class_board.xml"></mapper>
 		<mapper resource="mybatis/mapper/teaches.xml"></mapper>

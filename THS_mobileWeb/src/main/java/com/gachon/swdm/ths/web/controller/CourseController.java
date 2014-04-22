@@ -107,6 +107,8 @@ public class CourseController {
 		model.addAttribute("page", page);
 		model.addAttribute("classBoardReply", new ClassBoardReplyWithPage());
 		model.addAttribute("replyList", replyList);
+		model.addAttribute("year",year);
+		model.addAttribute("semester",semester);
 		
 		return "course/courseDetail/class_board_read";
 	}
@@ -137,6 +139,8 @@ public class CourseController {
 		classBoard.setId_course(id_course);
 		model.addAttribute("classBoard", classBoard);
 		model.addAttribute("page",page);
+		model.addAttribute("year",year);
+		model.addAttribute("semester",semester);
 
 		return "course/courseDetail/class_board_form";
 	}

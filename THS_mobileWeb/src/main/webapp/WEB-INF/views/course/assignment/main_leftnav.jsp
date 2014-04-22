@@ -14,13 +14,8 @@
 				code="label.mainPage_userInfo" /></a></li>
 	<li><a href="schoolBoard.action?type=0&page=0"><spring:message
 				code="label.mainPage_schoolNotice" /></a></li>
-<<<<<<< HEAD
 	<li><a href="classList.action?id_user=${member.loginId}"><spring:message
 			code="label.mainPage_course_courseList" /></a></li>
-=======
-	<li><a href="main.action?selection=2"><spring:message
-				code="label.mainPage_myClass" /></a><br /></li>
->>>>>>> branch 'master' of https://voidbag@github.com/THS-gachon/THS_mobileWeb.git
 	<li><a href="main.action?selection=3"><spring:message
 				code="label.mainPage_configuration" /></a><br /></li>
 	<li><a href="courseView.action?department=all&id_student=${member.loginId}"><spring:message

@@ -4,7 +4,7 @@ public class Building {
 	//primary key (building)
 	private String building;//varchar(20)
 	private double latitude;//double
-	private double longitude;//double
+	private double longitude;//doubled
 	/*
 	 create table building(
 	 building varchar(20),

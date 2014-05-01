@@ -1,10 +1,6 @@
 package com.gachon.swdm.ths.web.bean.board;
 
-/**
- * 
- * @author KTS
- * 
- */
+
 public class SchoolBoardReplyWithPage extends SchoolBoardReply {
 
 	private int page;

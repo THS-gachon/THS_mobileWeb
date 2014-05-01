@@ -9,9 +9,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import com.gachon.swdm.ths.web.bean.EditedUser;
+import com.gachon.swdm.ths.web.bean.User;
 import com.gachon.swdm.ths.web.service.database.UserService;
 import com.gachon.swdm.ths.web.util.LoginChecker;
 
@@ -24,24 +25,31 @@ public class MyPageController {
 	@Qualifier("userService")
 	UserService userService;
 	
+	@Autowired
+	HomeController homeController;
+	
+	
+	
 	@RequestMapping(value="/myPage.action", method=RequestMethod.GET)
-	public String myPageAction(Locale locale, Model model)
+	public String viewMyPage(@RequestParam("id_user")String id_user, Locale locale, Model model)
 	{
 		
-		if(LoginChecker.isLogined(model))
-			return "login_form";
-		
-		model.addAttribute("editedUser", new EditedUser());
-		return "myPage";
+		if(LoginChecker.isLogined(model)!= true)
+			return homeController.home(locale, model);
+	
+		model.addAttribute("user", new User());
+		return "/myPage/userInfo";
 	}
 	
-	@RequestMapping(value="/myPage.action", method=RequestMethod.POST)
-	public String editUser(@ModelAttribute("editedUser") EditedUser user, Locale locale, Model model)
+	@RequestMapping(value="/editUser.action", method=RequestMethod.POST)
+	public String editUser(@ModelAttribute("user") User user, Locale locale, Model model)
 	{
-		/*
-		 * 
-		 */
-		System.out.println("dept_name: "+user.getDept_name());
+
+	//	System.out.println("dept_name: "+user.getDept_name());
+		
+		//validation
+		//
+		
 		userService.update(user);
 		return "index";//edited sucessful view.
 	}

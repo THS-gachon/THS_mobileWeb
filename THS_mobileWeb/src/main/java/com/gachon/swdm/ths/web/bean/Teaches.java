@@ -2,29 +2,8 @@ package com.gachon.swdm.ths.web.bean;
 
 public class Teaches {
 	
-	//primary key(person id,course_id, sec_id,semester,year)
-	/*
-	 	create table teaches(
-	 	id_professor varchar(40),
-	 	year integer,
-	 	semester tinyInt,
-	 	id_course integer,
-		summary text,
-	 	primary key(id_professor, year, semester, id_course),
-	 	foreign key(id_professor) references user(id_login),
-	 	foreign key(year, semester, id_course) references course(year, semester, id_course),
-	 	INDEX index1 (year, semester, id_course),
-	 	INDEX index2 (id_professor, year, semester)
-	 	);
-	 	 
-	 */
-	
-	/*
-	 	INSERT INTO teaches(id_professor, year, semester, id_course,summary) VALUES('hyrjo',2014,1,10622001,'null');
-	 	INSERT INTO teaches(id_professor, year, semester, id_course,summary) VALUES('cykim',2014,1,06480001,'null');
-	 	INSERT INTO teaches(id_professor, year, semester, id_course,summary) VALUES('wjhan',2014,1,09031001,'null');
-	 	INSERT INTO teaches(id_professor, year, semester, id_course,summary) VALUES('cykim',2014,1,11438001,'null');
-	 */
+	//primary key(id_professor, year, semester, id_course)
+
 	private String id_professor;
 	
 	private int id_course;

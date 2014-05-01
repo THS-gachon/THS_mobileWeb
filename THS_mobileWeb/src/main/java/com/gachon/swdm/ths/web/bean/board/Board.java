@@ -49,6 +49,8 @@ public abstract class Board {
 	
 		return format.format(calendar.getTime());
 	}
+	
+	
 	public String getDateForRecord(){
 		SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm ss.SSS");
 		Calendar calendar = Calendar.getInstance();

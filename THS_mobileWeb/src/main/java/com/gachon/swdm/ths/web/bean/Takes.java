@@ -1,22 +1,8 @@
 package com.gachon.swdm.ths.web.bean;
 
 public class Takes {
-	//primary key(persionId, courseId, sec_id, semester, year)
-	/*
-	 create table takes(
-	 	id_student varchar(40),
-	 	year integer,
-	 	semester tinyInt,
-	 	id_course integer,
-	 	grade float,
-	 	primary key(id_student, year, semester, id_course),
-	 	foreign key(id_student) references user(id_login),
-	 	foreign key(year, semester, id_course) references course(year,semester,id_course),
-	 	INDEX index1 (year, semester, id_course),
-	 	INDEX index2 (id_student, year, semester)
-	 );
-	 
-	 */
+	//primary key(id_student, year, semester, id_course)
+
 	private String id_student;
 	private int id_course;
 	private int semester;

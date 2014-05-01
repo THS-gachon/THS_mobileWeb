@@ -2,9 +2,8 @@ package com.gachon.swdm.ths.web.bean;
 
 
 public class User {
-	//primary key (personId)
-	//loginId index
-	
+	//primary key (id_login)
+	private String pwCheck;
 	private String loginId; //varchar(40)
 	private int personId;//integer
 	private String pw; //varchar(50)
@@ -12,42 +11,6 @@ public class User {
 	private String phoneNumber;//varchar(20)
 	private int position;//0학생//1. short int
 	private String dept_name;//varchar(40)
-	/*
-	 	INSERT INTO user(id_login,id_person,pw,name,phone_number,position,dept_name) 
-	 		VALUES ("hyrjo",199810003, "123", "조형래","031-750-5180","1","경영학과");
-	 	INSERT INTO user(id_login,id_person,pw,name,phone_number,position,dept_name) 
-	 		VALUES ("cykim",201010002, "123", "김철연","031-750-8658","1","소프트웨어 설계 경영학과");
-	 	INSERT INTO user(id_login,id_person,pw,name,phone_number,position,dept_name) 
-	 		VALUES ("wjhan",201110001, "123", "한우진"," 031-750-8668","1","소프트웨어 설계 경영학과");
-	 
-	 */
-	
-	
-	/*
-	 department must be created
-	 
-	 */
-	/*
-	 
-	 create table user(
-	 	id_login varchar(40),
-	 	id_person integer,
-	 	pw varchar(50),
-	 	name varchar(30),
-	 	phone_number varchar(20),
-	 	position tinyInt,
-	 	dept_name varchar(40),
-	 	primary key (id_login),
-	 	foreign key (dept_name) references department(dept_name),
-	 	INDEX index1 (id_person)
-	 )
-	 
-	 INSERT INTO user(id_login,id_person,pw,name,phone_number,position,dept_name) 
-	 VALUES ("master",201100000,"123", "THS","010","3","소프트웨어 설계 경영학과");
-	 
-	 
-	 
-	 */
 	
 	public User()
 	{
@@ -95,6 +58,12 @@ public class User {
 	}
 	public void setPosition(int position) {
 		this.position = position;
+	}
+	public String getPwCheck() {
+		return pwCheck;
+	}
+	public void setPwCheck(String pwCheck) {
+		this.pwCheck = pwCheck;
 	}
 	
 }

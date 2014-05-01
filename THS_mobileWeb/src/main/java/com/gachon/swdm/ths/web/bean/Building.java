@@ -2,21 +2,10 @@ package com.gachon.swdm.ths.web.bean;
 
 public class Building {
 	//primary key (building)
-	private String building;//varchar(20)
-	private double latitude;//double
-	private double longitude;//doubled
-	/*
-	 create table building(
-	 building varchar(20),
-	 latitude double,
-	 longitude double,
-	 primary key(building)
-	 )
-	 
-	 INSERT INTO building(building,latitude,longitude) VALUES("새롬관",37.450904,127.127354);
-	 INSERT INTO building(building,latitude,longitude) VALUES("웅지관",37.449494, 127.129401);
-	 
-	 */
+	private String building;
+	private double latitude;
+	private double longitude;
+
 	
 	public Building(){
 		

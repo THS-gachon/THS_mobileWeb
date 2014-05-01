@@ -10,31 +10,27 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Mobile Class</title>
+<title><spring:message code="label.app.title"/></title>
 </head>
 <body>
 	<h1>
-		<spring:message code="label.mainPage_title" />
+		<spring:message code="label.app.title" />
 	</h1>
 
 	<h2>
-		<a href="main.action?selection=0"><spring:message
-				code="label.mainPage_userInfo" /></a>
+		<a href="myPage.action?id_user=${member.loginId}"><spring:message
+				code="label.menu.myPage" /></a>
 	</h2>
 	<h2>
-		<a href="schoolBoard.action?type=0&page=0"><spring:message
-				code="label.mainPage_schoolNotice" /></a>
+		<a href="schoolBoard.action?type=0&page=0&id_user=${member.loginId}"><spring:message
+				code="label.menu.schoolNotice" /></a>
 	</h2>
 	<h2>
 	<a href="classList.action?id_user=${member.loginId}"><spring:message
-			code="label.mainPage_course_courseList" /></a>
-	</h2>
-	<h2>
-		<a href="main.action?selection=3"><spring:message
-				code="label.mainPage_configuration" /></a>
+			code="label.menu.myClass" /></a>
 	</h2>
 	
-	<h2><a href="courseView.action?department=all&id_student=${member.loginId}"><spring:message
-				code="label.mainPage_course_courseEnroll" /></a></h2>
+	<h2><a href="courseEnrollView.action?department=all&id_user=${member.loginId}"><spring:message
+				code="label.menu.courseEnroll" /></a></h2>
 </body>
 </html>

@@ -8,29 +8,7 @@ public class ClassBoardReply extends Reply{
 	private int semester;
 	private int board_type;
 	private String name_writer;
-	
-	
-	/*
-	 CREATE TABLE class_board_reply(
-	 	id_user varchar(40),
-	 	date_written bigInt unsigned,
-	 	ip varchar(40),
-	 	contents text,
-	 	
-	 	year integer,
-	 	semester tinyInt,
-	 	id_course integer,
-	 	board_type tinyInt,
-	 	board_date bigInt unsigned,
-	 	board_writer varchar(40),
-	 	
-	 	primary key(year, semester, id_course, board_type, board_date, board_writer, date_written, id_user),
-	 	foreign key(year,semester,id_course, board_type, board_date, board_writer)
-	 		references class_board (year, semester, id_course, type, date_written, id_user),
-	 	INDEX index1(year, semester, id_course, board_type, board_date, board_writer, date_written)
-	 )
-	 */
-
+	//primary key(year, semester, id_course, board_type, board_date, board_writer, date_written, id_user)
 	
 	
 	

@@ -6,10 +6,7 @@ public class ClassRoom {
 	private String building; 
 	private String room_number;
 	private int capacity;
-	
-	/*
 
-	 */
 	
 	public ClassRoom(){
 		

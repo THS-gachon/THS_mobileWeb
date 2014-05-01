@@ -25,8 +25,6 @@ public class SchoolBoardDAOImpl implements SchoolBoardDAO{
 
 	@Override
 	public List<SchoolBoard> getSchoolBoardList(HashMap<String, Integer> hashmap) {
-
-
 		return sqlSession.selectList(NS+"getSchoolBoardList", hashmap);
 	}
 
@@ -67,8 +65,6 @@ public class SchoolBoardDAOImpl implements SchoolBoardDAO{
 	public void updateReadNum(HashMap<String,Object>hashmap) {
 		sqlSession.update(NS+"updateReadNum", hashmap);
 	}
-	
-	
 	
 	
 }

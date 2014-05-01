@@ -2,6 +2,7 @@ package com.gachon.swdm.ths.web.bean.board;
 
 public class ClassBoard extends Board{
 	
+	//primary key(year, semester, id_course, type, date_written, id_user)
 	private int id_course;
 	private int year;
 	private int semester;
@@ -9,38 +10,7 @@ public class ClassBoard extends Board{
 	private String name_writer;
 	private int start;
 	private int end;
-	
-	/*
-	 	private String id_writer;//references User..
-	private long date_written;//
-	private String title;//varchar(200)
-	private String contents;//text
-	private String ip;//varchar(40)//ipv6 is considered...
-	 */
-	/*
-	 	CREATE TABLE class_board(
-	 		
-	 		id_user varchar(40),
-	 		date_written bigInt unsigned,
-	 		title varchar(200),
-	 		contents text,
-	 		ip varchar(40),
-	 		
-	 		
-	 		year integer,
-	 		semester tinyInt,
-	 		id_course integer,
-	 		type tinyInt,
-	 		readNum integer,
-	 		
-	 		primary key(year, semester, id_course, type, date_written, id_user),
-	 		foreign key(year, semester, id_course) references course(year, semester, id_course),
-	 		foreign key(id_user) references user(id_login),
-	 		INDEX index1(year, semester, id_course, type, date_written)
-	 			 	
-	 	);
-	 */
-	
+
 	public int getYear() {
 		return year;
 	}

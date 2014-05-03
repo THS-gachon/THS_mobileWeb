@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.gachon.swdm.ths.web.bean.ClassRoomServer;
 import com.gachon.swdm.ths.web.bean.Course;
 import com.gachon.swdm.ths.web.bean.Takes;
 import com.gachon.swdm.ths.web.bean.board.ClassBoard;
@@ -28,6 +29,7 @@ import com.gachon.swdm.ths.web.bean.board.ClassBoardReply;
 import com.gachon.swdm.ths.web.bean.board.ClassBoardReplyWithPage;
 import com.gachon.swdm.ths.web.service.database.ClassBoardReplyService;
 import com.gachon.swdm.ths.web.service.database.ClassBoardService;
+import com.gachon.swdm.ths.web.service.database.ClassServerService;
 import com.gachon.swdm.ths.web.service.database.CourseService;
 import com.gachon.swdm.ths.web.service.database.DepartmentService;
 import com.gachon.swdm.ths.web.service.database.TeachesService;
@@ -62,6 +64,10 @@ public class ClassController {
 	@Autowired
 	@Qualifier("classBoardReplyService")
 	private ClassBoardReplyService classBoardReplyService;
+	
+	@Autowired
+	@Qualifier("classServerService")
+	private ClassServerService classServerService;
 	
 	@RequestMapping(value="/classList.action", method = RequestMethod.GET)
 	public String getClassList(@RequestParam(value="id_user")String id_user, Locale locale, Model model){
@@ -261,7 +267,20 @@ public class ClassController {
 	public String enterClass(@RequestParam(value="year")int year, @RequestParam(value="semester")int semester , @RequestParam(value="id_course")int id_course, @RequestParam(value="id_student")String id_student,
 			@RequestParam(value="type")int type, Locale locale, Model model)
 	{
-		return this.getClassBoardList(year, semester, id_course, id_student, type,0, locale, model);
+		
+		/*ClassRoomServer classServer;
+		classServer = new ClassRoomServer();
+		classServer.setId_course(id_course);
+		classServer.setYear(year);
+		classServer.setSemester(semester);
+		
+		
+		classServerService.checkOutClassServer(classServer);
+		
+		classServer=classServerService.getClassServer(classServer);
+		System.out.println(classServer.isOnline());
+		model.addAttribute("classServer",classServer);
+		*/return this.getClassBoardList(year, semester, id_course, id_student, type,0, locale, model);
 	}
 	
 	private boolean validate(Model model)

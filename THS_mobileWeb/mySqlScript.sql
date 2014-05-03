@@ -207,11 +207,12 @@ CREATE TABLE class_room_server
  	time_recentOnline long,
  	ip varchar(40),
  	PRIMARY KEY (year, semester, id_course),
- 	FOREIGN KEY (year, semester, id_course) references course (year, semester, id_course)
+ 	FOREIGN KEY (year, semester, id_course) references course (year, semester, id_course),
+ 	INDEX index1 (year,semester,id_course)
  );
 
 
-INSERT INTO class_room_server(year, semester, id_course, isOnline) values (2014, 1,10622001,false);
+INSERT INTO class_room_server(year, semester, id_course, isOnline) values (2014, 1,10622001, false);
 INSERT INTO class_room_server(year, semester, id_course, isOnline) values (2014, 1, 06480001, false); 
 INSERT INTO class_room_server(year, semester, id_course, isOnline) values (2014, 1, 09031001, false); 
 INSERT INTO class_room_server(year, semester, id_course, isOnline) values (2014, 1, 11438001, false); 

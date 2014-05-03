@@ -3,7 +3,7 @@
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.gachon.swdm.ths.web.bean.board.ClassRoomServer">
+<mapper namespace="com.gachon.swdm.ths.web.bean.ClassRoomServer">
 
 	<resultMap type="ClassRoomServer" id="ClassRoomServerResult">
 		<id property="year" column="year"/>
@@ -16,7 +16,7 @@
 	</resultMap>
 
 	<update id="checkInClassServer" parameterType="ClassRoomServer">
-		UPDATE class_room_server SET ip = #{ip}, isOnline = true, time_recentOnline = #{time_recentOnline} WHERE year=#{year}, semester=#{semester}, id_course = #{id_course}
+		UPDATE class_room_server SET ip = #{ip}, isOnline = true, time_recentOnline = #{time_recentOnline} WHERE year=#{year} and semester=#{semester} and id_course = #{id_course}
 	</update>
 	
 	<insert id="insertClassServer" parameterType="ClassRoomServer">
@@ -24,11 +24,11 @@
 	</insert>
 	
 	<update id="checkOutClassServer" parameterType="ClassRoomServer">
-		UPDATE class_room_server SET ip = #{ip}, isOnline = true, time_recentOnline = #{time_recentOnline} WHERE year=#{year}, semester=#{semester}, id_course = #{id_course}
+		UPDATE class_room_server SET ip = '', isOnline = false WHERE year=#{year} and semester=#{semester} and id_course = #{id_course}
 	</update>
 	
-	<select id="getClassServer" parameterType="ClassRoomServer">
-		SELECT * FROM class_room_server} WHERE year=#{year}, semester=#{semester}, id_course = #{id_course}
+	<select resultMap="ClassRoomServerResult" id="getClassServer" parameterType="ClassRoomServer">
+		SELECT * FROM class_room_server WHERE year=#{year} and semester=#{semester} and id_course = #{id_course}
 	</select>
 </mapper>
 

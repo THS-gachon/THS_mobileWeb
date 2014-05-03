@@ -24,6 +24,8 @@
 	{
 		addNavScript();
 		addClassNavScript();
+		//if($("classServer.isOnline") == true)
+			window.myJs.btnEnabled();
 	}
 </script>
 </head>

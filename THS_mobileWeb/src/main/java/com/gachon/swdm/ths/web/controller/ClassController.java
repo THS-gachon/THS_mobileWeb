@@ -84,7 +84,28 @@ public class ClassController {
 		classServerService.checkInClassServer(classServer);
 		
 		classServer=classServerService.getClassServer(classServer);
-		System.out.println(classServer.isOnline());
+		model.addAttribute("classServer",classServer);
+		return this.getClassBoardList(year, semester, id_course, "0", 0,0, locale, model);
+	}
+	
+	@RequestMapping(value="/classServerDisconnect.action", method = RequestMethod.POST)
+	public String classServerServiceOut(@RequestParam(value="year")int year, @RequestParam(value="semester")int semester , @RequestParam(value="id_course")int id_course,
+			HttpServletRequest httpServletRequest, Locale locale, Model model)
+	{		
+		long currentTime = System.currentTimeMillis();
+		String ip = httpServletRequest.getRemoteAddr();
+		
+		ClassRoomServer classServer;
+		classServer = new ClassRoomServer();
+		classServer.setId_course(id_course);
+		classServer.setYear(year);
+		classServer.setSemester(semester);
+		classServer.setTime_recentOnline(currentTime);
+		classServer.setIp(ip);
+		
+		classServerService.checkOutClassServer(classServer);
+		
+		classServer=classServerService.getClassServer(classServer);
 		model.addAttribute("classServer",classServer);
 		return this.getClassBoardList(year, semester, id_course, "0", 0,0, locale, model);
 	}

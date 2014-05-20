@@ -21,6 +21,7 @@
 	{
 		addNavScript();
 		addSchoolNoticeNavScript();
+		window.myJs.btnDisabled();
 	}
 </script>
 	

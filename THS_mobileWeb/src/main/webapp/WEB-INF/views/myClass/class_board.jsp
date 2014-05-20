@@ -70,6 +70,9 @@
 				<script type="text/javascript"> javascript: addJavascript('${classServer.ip}', 0);</script>
 			</c:if>
 		</div>
+		<div>
+			Course Time : ${CheckCourseTime}
+		</div>
 	</div>
 	<div id="footer"></div>
 </body>

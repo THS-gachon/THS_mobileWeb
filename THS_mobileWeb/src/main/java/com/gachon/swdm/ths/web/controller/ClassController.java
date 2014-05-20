@@ -33,6 +33,7 @@ import com.gachon.swdm.ths.web.service.database.ClassServerService;
 import com.gachon.swdm.ths.web.service.database.CourseService;
 import com.gachon.swdm.ths.web.service.database.DepartmentService;
 import com.gachon.swdm.ths.web.service.database.TeachesService;
+import com.gachon.swdm.ths.web.util.Time;
 import com.gachon.swdm.ths.web.util.CurrentDateCalculator;
 import com.gachon.swdm.ths.web.util.PageCalculator;
 
@@ -66,13 +67,14 @@ public class ClassController {
 	@Qualifier("classServerService")
 	private ClassServerService classServerService;
 
-	@RequestMapping(value="/classServerService.action", method = RequestMethod.POST)
-	public String classServerService(@RequestParam(value="year")int year, @RequestParam(value="semester")int semester , @RequestParam(value="id_course")int id_course,
-			HttpServletRequest httpServletRequest, Locale locale, Model model)
-	{		
+	@RequestMapping(value = "/classServerService.action", method = RequestMethod.POST)
+	public String classServerService(@RequestParam(value = "year") int year,
+			@RequestParam(value = "semester") int semester,
+			@RequestParam(value = "id_course") int id_course,
+			HttpServletRequest httpServletRequest, Locale locale, Model model) {
 		long currentTime = System.currentTimeMillis();
 		String ip = httpServletRequest.getRemoteAddr();
-		
+
 		ClassRoomServer classServer;
 		classServer = new ClassRoomServer();
 		classServer.setId_course(id_course);
@@ -80,21 +82,23 @@ public class ClassController {
 		classServer.setSemester(semester);
 		classServer.setTime_recentOnline(currentTime);
 		classServer.setIp(ip);
-		
+
 		classServerService.checkInClassServer(classServer);
-		
-		classServer=classServerService.getClassServer(classServer);
-		model.addAttribute("classServer",classServer);
-		return this.getClassBoardList(year, semester, id_course, "0", 0,0, locale, model);
+
+		classServer = classServerService.getClassServer(classServer);
+		model.addAttribute("classServer", classServer);
+		return this.getClassBoardList(year, semester, id_course, "0", 0, 0,
+				locale, model);
 	}
-	
-	@RequestMapping(value="/classServerDisconnect.action", method = RequestMethod.POST)
-	public String classServerServiceOut(@RequestParam(value="year")int year, @RequestParam(value="semester")int semester , @RequestParam(value="id_course")int id_course,
-			HttpServletRequest httpServletRequest, Locale locale, Model model)
-	{		
+
+	@RequestMapping(value = "/classServerDisconnect.action", method = RequestMethod.POST)
+	public String classServerServiceOut(@RequestParam(value = "year") int year,
+			@RequestParam(value = "semester") int semester,
+			@RequestParam(value = "id_course") int id_course,
+			HttpServletRequest httpServletRequest, Locale locale, Model model) {
 		long currentTime = System.currentTimeMillis();
 		String ip = httpServletRequest.getRemoteAddr();
-		
+
 		ClassRoomServer classServer;
 		classServer = new ClassRoomServer();
 		classServer.setId_course(id_course);
@@ -102,12 +106,13 @@ public class ClassController {
 		classServer.setSemester(semester);
 		classServer.setTime_recentOnline(currentTime);
 		classServer.setIp(ip);
-		
+
 		classServerService.checkOutClassServer(classServer);
-		
-		classServer=classServerService.getClassServer(classServer);
-		model.addAttribute("classServer",classServer);
-		return this.getClassBoardList(year, semester, id_course, "0", 0,0, locale, model);
+
+		classServer = classServerService.getClassServer(classServer);
+		model.addAttribute("classServer", classServer);
+		return this.getClassBoardList(year, semester, id_course, "0", 0, 0,
+				locale, model);
 	}
 
 	@RequestMapping(value = "/classList.action", method = RequestMethod.GET)
@@ -310,6 +315,8 @@ public class ClassController {
 			@RequestParam(value = "type") int type, Locale locale, Model model) {
 
 		ClassRoomServer classServer;
+		Course course;
+		
 		classServer = new ClassRoomServer();
 		classServer.setId_course(id_course);
 		classServer.setYear(year);
@@ -320,6 +327,15 @@ public class ClassController {
 		classServer = classServerService.getClassServer(classServer);
 		System.out.println(classServer.isOnline());
 		model.addAttribute("classServer", classServer);
+		
+		course = getCourseMeta(year, semester, id_course);
+		course = courseService.getCourse(course);
+		String courseTime = course.getTime();
+		Time time = new Time();
+		time.setTime(courseTime);
+		Boolean result = time.checkCourseTime();
+		model.addAttribute("CheckCourseTime", result);
+		
 		return this.getClassBoardList(year, semester, id_course, id_student,
 				type, 0, locale, model);
 	}

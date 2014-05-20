@@ -22,6 +22,7 @@
 	function addJavascript()
 	{
 		addNavScript();
+		window.myJs.btnDisabled();
 	}
 </script>
 

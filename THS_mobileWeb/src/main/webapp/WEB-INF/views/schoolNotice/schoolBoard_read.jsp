@@ -22,6 +22,7 @@
 	{
 		addNavScript();
 		addSchoolNoticeNavScript();
+		window.myJs.btnDisabled();
 	}
 </script>
 
@@ -48,14 +49,15 @@
 		<div id="contents">
 			<div id="record">
 			<h3><spring:message code="label.schoolNotice.board.title"/>: ${record.title}</h3>
-			<h5><spring:message code="label.schoolNotice.board.date"/>: ${record.dateForRecord}</h5>
-			<h5><spring:message code="label.schoolNotice.board.viewCount"/>: ${record.readNum}</h5>
-			<h4><spring:message code="label.schoolNotice.board.contents"/>: </h4>
-			<p>
-				${record.contents}
-			</p>
+			<hr width="100%" size="0.5" color="#BDBDBD">
+			<h5><spring:message code="label.schoolNotice.board.date"/>: ${record.dateForRecord} 
+			| <spring:message code="label.schoolNotice.board.viewCount"/>: ${record.readNum}
+			| <spring:message code="label.schoolNotice.board.writer"/>: ${record.id_writer}</h5>
 			<h5><spring:message code="label.schoolNotice.board.ip"/>: ${record.ip}</h5>
-			<h5><spring:message code="label.schoolNotice.board.writer"/>: ${record.id_writer}</h5>
+			<hr width="100%" size="0.5" color="#BDBDBD">
+			<h4><spring:message code="label.schoolNotice.board.contents"/>: </h4>
+			<textarea rows="20" cols="50" readonly="readonly">${record.contents}</textarea>
+			<hr width="100%" size="0.5" color="#BDBDBD">
 			<br/>
 			<a href="schoolBoard.action?type=${record.type}&page=${page}"><spring:message code="label.schoolBoard_back"/></a>
 			</div>
@@ -73,7 +75,8 @@
 			</div>
 			<div id="reply_list">
 				<c:forEach var="reply" items="${replyList}">
-					<br/><br/>
+					<br/>
+					<hr width="100%" size="0.5" color="#BDBDBD">
 					<spring:message code="label.schoolNotice.reply.writer"/>: ${reply.id_writer}<br/>
 					<spring:message code="label.schoolNotice.reply.contents"/>:<br/>
 					<p>	${reply.contents}</p>

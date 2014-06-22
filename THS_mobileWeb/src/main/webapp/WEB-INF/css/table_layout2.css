@@ -1,0 +1,121 @@
+*
+{
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+
+.CSSTABLE2 table 
+{
+	text-align: left;
+	border-spacing: 0px;
+	border: 1px solid #aeb3b6;
+	border-collapse: collapse;
+	
+}
+
+
+.CSSTABLE2 table a, table, tbody, tfoot, tr, th, td 
+{
+   font-family: Arial, Helvetica, sans-serif;
+	line-height: 2.0em;
+	font-size: 11px;
+	color: #55595c;
+}
+.CSSTABLE2 tbody td{
+	line-height: 2.5em;
+}
+
+.CSSTABLE2 table caption
+{
+	padding: .4em 0 ;
+	font-size: 240%;
+	font-style: normal;
+	color: #FB7E00;
+}
+
+.CSSTABLE2 table a
+{
+	display: block;
+	text-decoration: none;
+	color: #FF8E53;
+	padding-right: 1.5em;
+	
+}
+
+.CSSTABLE2 table a:hover, table a:focus
+{
+text-decoration: underline;
+}
+
+.CSSTABLE2 table th a
+{
+	color: #FF8E53;
+	text-align: right;
+	padding-right: 1.2em
+}
+.CSSTABLE2 table .odd th a,table .odd td a,table .odd td{
+	color: #666;
+	padding-right: 1.0 em;
+}
+
+.CSSTABLE2 table th a:hover, table th a:focus, tbody tr:hover th
+{   
+   background-color: #FFCC99;
+	color: #fff !important;
+}
+.CSSTABLE2 table .odd th,table .odd td{
+	background-color: #DDDDDD;
+}
+
+.CSSTABLE2 thead th
+{
+	background-image: url(verlauf_schwarz.gif);
+	text-transform: uppercase;
+	font-weight: normal;
+	letter-spacing: 1px;
+	color: #55595c;
+	border-bottom: 1px solid #aeb3b6;
+	
+}
+.CSSTABLE2 tfoot{
+	background-image: url(verlauf_schwarz.gif);
+	border-top: 1px solid #fff;
+	
+	
+}
+.CSSTABLE2 tfoot th,tfoot td{
+	color: #fff;
+}
+
+.CSSTABLE2 tbody th
+{
+   padding-right: 1.0em;
+	color: #25c1e2;
+	font-style: normal;
+	background-color: #fff;
+	border-bottom: 1px dotted #aeb3b6;
+}
+
+.CSSTABLE2 td
+{
+   color: #FF8E1C;
+	border-bottom: 1px dotted #aeb3b6;
+	padding-right: 0.5em;
+	
+}
+
+.CSSTABLE2 tbody tr.odd
+{
+	border-bottom: 1px dotted #aeb3b6;
+}
+
+.CSSTABLE2 tbody tr:hover td
+{
+  background-color: #FFCC99;
+}
+
+.CSSTABLE2 tbody tr:hover td,tbody tr:hover th, tbody tr:hover a
+{
+	color: #fff !important;
+}

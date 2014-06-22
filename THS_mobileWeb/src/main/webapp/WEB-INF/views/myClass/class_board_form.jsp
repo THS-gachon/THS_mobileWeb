@@ -11,6 +11,7 @@
 <head>
 <meta charset="utf-8">
 <title>Mobile Class</title>
+<link rel="stylesheet" href="css/table_layout3.css" type="text/css" />
 <!--  <link rel="stylesheet" href="<c:url value="/css/main_layout.css"/>"
 	type="text/css" />-->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js" type="text/javascript"></script>
@@ -46,22 +47,24 @@
 		<div id="contents">
 			<form:form modelAttribute="classBoard" method="POST"
 				action="classBoardWrite.action">
-				<spring:message code="label.myClass.board.writer" />: <form:input
-					readonly="true" value="${member.loginId}" path="id_writer" />
-				<br />
-				<spring:message code="label.myClass.board.title" />: <form:input
-					path="title" />
-				<br />
-				<spring:message code="label.myClass.board.contents" />
-				<br />
-				<form:textarea path="contents" />
-				<br/>
+				<div class="MYPAGE">
+					<table>
+						<tr>
+							<th><spring:message code="label.myClass.board.writer" /></th><td> <form:input
+					readonly="true" value="${member.loginId}" path="id_writer" /></td></tr>
+				<tr><th>
+				<spring:message code="label.myClass.board.title" /></th><td> <form:input
+					path="title" /></td></tr>
+					<tr><th>
+				<spring:message code="label.myClass.board.contents" /></th><td>
+				<form:textarea path="contents" /></td></tr>
+				
 				<form:input path="year" value="${year}" type="hidden"/>
 				<form:input path="semester" value="${semester}" type="hidden"/>
 				<form:input path="id_course" value="${id_course}" type="hidden"/>
 				<form:input path="type" value="${type}" type="hidden" />
-				<input type="submit"
-					value="<spring:message code="label.myClass.board.submit"/>" />
+				<tr><td colspan="2"><input type="submit"
+					value="<spring:message code="label.myClass.board.submit"/>" /></td></tr></table></div>
 				<br/>
 			</form:form>
 		</div>

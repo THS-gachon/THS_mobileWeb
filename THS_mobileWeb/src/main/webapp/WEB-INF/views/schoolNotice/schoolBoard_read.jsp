@@ -89,7 +89,7 @@
 									code="label.schoolNotice.board.contents" /></th>
 						</tr>
 						<tr>
-							<td colspan="2"><textarea rows="20" cols="50"
+							<td colspan="2"><textarea rows="20" cols="30"
 									readonly="readonly">${record.contents}</textarea></td>
 						</tr>
 					</table>

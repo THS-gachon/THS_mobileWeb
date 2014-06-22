@@ -39,7 +39,7 @@ background: url(bg_td1.jpg) repeat-x top;
 	border-right: 1px solid #DDDDDD;
 	text-align: left;
 }
-.menu tbody tr:hover{
+.menu tbody tr td:hover{
 	background-color: #FFCA5E;
 }
 .menu a {

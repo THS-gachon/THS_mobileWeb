@@ -13,7 +13,7 @@
 <title><spring:message code="label.app.title" /></title>
 
 <link rel="stylesheet" href="css/table_layout3.css" type="text/css" />
-
+<link rel="stylesheet" href="css/button.css" type="text/css" />
 
 
 <!-- <link rel="stylesheet" href="<c:url value="/css/main_layout.css"/>" type="text/css" /> -->

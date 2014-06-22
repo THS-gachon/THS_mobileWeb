@@ -12,6 +12,7 @@
 <meta charset="utf-8">
 <title>Mobile Class</title>
 <link rel="stylesheet" href="css/table_layout3.css" type="text/css" />
+<link rel="stylesheet" href="css/button.css" type="text/css" />
 <!--  <link rel="stylesheet" href="<c:url value="/css/main_layout.css"/>"
 	type="text/css" />-->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js" type="text/javascript"></script>

@@ -12,9 +12,8 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>ClassBoard</title>
+<title>Board</title>
 <link rel="stylesheet" href="css/button.css" type="text/css" />
-<link rel="stylesheet" href="css/table_layout.css" type="text/css" />
 <!-- <link rel="stylesheet" href="<c:url value="/css/main_layout.css"/>"
 	type="text/css" /> -->
 <script

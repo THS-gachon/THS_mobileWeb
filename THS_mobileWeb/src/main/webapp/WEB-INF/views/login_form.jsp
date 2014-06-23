@@ -11,9 +11,18 @@
 <head>
 <meta charset="utf-8">
 <title>Login page</title>
+<script type="text/javascript">
+	function sendIdPw(){
+		var id = document.forms["loginForm"]["loginId"].value;
+		var pw = document.forms["loginForm"]["pw"].value;
+		window.myJs.sendIdPw(id,pw);
+	}
+
+</script>
 </head>
+
 <body>
-	<form:form modelAttribute="user" method="POST" action="login.action">
+	<form:form modelAttribute="user" name="loginForm" method="POST" action="login.action" onsubmit="javsscript:sendIdPw()">
 		<table align="center" cellspacing="5px">
 			<tr>
 				<td>I D <form:input path="loginId" />

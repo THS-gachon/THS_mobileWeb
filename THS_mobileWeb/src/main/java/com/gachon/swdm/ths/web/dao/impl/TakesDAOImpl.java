@@ -37,6 +37,14 @@ public class TakesDAOImpl implements TakesDAO{
 	public void deleteTakes(Takes takes) {
 		sqlSession.delete(NS+"deleteTakes", takes);
 	}
+
+
+
+	@Override
+	public Takes getTakesInClass(Takes takes) {
+		return sqlSession.selectOne("getTakesInClass", takes);
+		
+	}
 	
 	
 	

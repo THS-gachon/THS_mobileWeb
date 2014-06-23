@@ -16,6 +16,10 @@ public class Course {
 	private int currentNum;
 	
 	private User professor;
+	
+	private int num_weeks;
+	private int times;
+	
 	//primary key(year, semester, id_course)
 
 
@@ -132,6 +136,26 @@ public class Course {
 
 	public void setProfessor(User professor) {
 		this.professor = professor;
+	}
+
+
+	public int getNum_weeks() {
+		return num_weeks;
+	}
+
+
+	public void setNum_weeks(int num_weeks) {
+		this.num_weeks = num_weeks;
+	}
+
+
+	public int getTimes() {
+		return times;
+	}
+
+
+	public void setTimes(int times) {
+		this.times = times;
 	}
 
 }

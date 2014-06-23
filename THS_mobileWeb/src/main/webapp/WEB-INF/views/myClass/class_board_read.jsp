@@ -2,7 +2,9 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%
+	request.setCharacterEncoding("UTF-8");
+%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
@@ -10,8 +12,10 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Notice</title>
-<!--  <link rel="stylesheet" href="<c:url value="/css/main_layout.css"/>" type="text/css" />-->
+<title>Board</title>
+<link rel="stylesheet" href="css/button.css" type="text/css" />
+<!-- <link rel="stylesheet" href="<c:url value="/css/main_layout.css"/>"
+	type="text/css" /> -->
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"
 	type="text/javascript"></script>
@@ -32,8 +36,7 @@
 </head>
 <body>
 
-	<div id="header"></div>
-
+	<div id="header">Mobile Class</div>
 	<div id="body">
 		<button id="nav-show">
 			<spring:message code="label.menu.show" />
@@ -59,32 +62,40 @@
 
 		<div id="contents">
 			<div id="record">
-				<h3>
-					<spring:message code="label.myClass.board.title" />
-					: ${record.title}
-				</h3>
-				<hr width="100%" size="0.5" color="#BDBDBD">
-				<h5>
-					<spring:message code="label.myClass.board.date" />
-					: ${record.dateForRecord} |
-					<spring:message code="label.myClass.board.viewCount" />
-					: ${record.readNum} |
-					<spring:message code="label.myClass.board.writer" />
-					: ${record.name_writer}
-				</h5>
-				<h5>
-					<spring:message code="label.myClass.board.ip" />
-					: ${record.ip}
-				</h5>
-				<hr width="100%" size="0.5" color="#BDBDBD">
-				<h4>
-					<spring:message code="label.myClass.board.contents" />
-					:
-				</h4>
-				<textarea rows="20" cols="50" readonly="readonly">${record.contents}</textarea>
-				
-				<hr width="100%" size="0.5" color="#BDBDBD">
-				<br /> <a
+				<div class="MYPAGE">
+					<table>
+						<tr>
+							<th><spring:message code="label.myClass.board.title" /></th>
+							<td>${record.title}</td>
+						</tr>
+						<tr>
+							<th><spring:message code="label.myClass.board.date" /></th>
+							<td>${record.dateForRecord}</td>
+						</tr>
+						<tr>
+							<th><spring:message code="label.myClass.board.viewCount" />
+							</th>
+							<td>${record.readNum}</td>
+						</tr>
+						<tr>
+							<th><spring:message code="label.myClass.board.writer" /></th>
+							<td>${record.name_writer}</td>
+						</tr>
+						<tr>
+							<th><spring:message code="label.myClass.board.ip" /></th>
+							<td>${record.ip}</td>
+						</tr>
+						<tr>
+							<th colspan="2"><spring:message
+									code="label.myClass.board.contents" /></th>
+						</tr>
+						<tr>
+							<td colspan="2"><textarea rows="20" cols="30"
+									readonly="readonly">${record.contents}</textarea></td>
+						</tr>
+					</table>
+				</div>
+				<a
 					href="classBoard.action?year=${record.year}&semester=${record.semester}&id_course=${record.id_course}&type=${record.type}&page=${page}&id_user=${member.loginId}"><spring:message
 						code="label.myClass.board.backToList" /></a>
 			</div>
@@ -111,12 +122,32 @@
 			</div>
 			<div id="reply_list">
 				<c:forEach var="reply" items="${replyList}">
-					<br /><hr width="100%" size="0.5" color="#BDBDBD">
-					<spring:message code="label.myClass.board.reply.writer" />: ${reply.name_writer}<br />
-					<spring:message code="label.myClass.board.reply.contents" />:<br />
-					<p>${reply.contents}</p>
-					<spring:message code="label.myClass.board.reply.ip" />: ${reply.ip}<br />
-					<spring:message code="label.myClass.board.reply.date" />: ${reply.dateForRecord}
+					<div class="MYPAGE">
+						<table>
+							<tr>
+								<th><spring:message code="label.myClass.board.reply.writer" /></th>
+								<td>${reply.name_writer}</td>
+							</tr>
+
+							<tr>
+								<th colspan="2"><spring:message
+										code="label.myClass.board.reply.contents" /></th>
+							</tr>
+							<tr>
+								<td colspan="2">${reply.contents}</td>
+							</tr>
+							<tr>
+								<th><spring:message code="label.myClass.board.reply.ip" /></th>
+								<td>${reply.ip}</td>
+							</tr>
+							<tr>
+								<th><spring:message code="label.myClass.board.reply.date" /></th>
+								<td>${reply.dateForRecord}</td>
+							</tr>
+						</table>
+					</div>
+					<br />
+					<br />
 				</c:forEach>
 			</div>
 			<div>

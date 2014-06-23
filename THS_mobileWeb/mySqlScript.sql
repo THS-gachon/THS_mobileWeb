@@ -182,7 +182,8 @@ CREATE TABLE course(
  	time_slot varchar(16),
  	currentNum integer,
  	maxNum integer,
- 
+ 	num_weeks tinyInt,
+ 	times tinyInt,
  	
  	PRIMARY KEY (year,semester,id_course),
  	FOREIGN KEY (dept_name) REFERENCES department(dept_name),
@@ -191,10 +192,10 @@ CREATE TABLE course(
  );
 
 
-INSERT INTO course (year, semester, id_course,title,dept_name,building,room_number, credits, time_slot,currentNum,maxNum) VALUES(2014 , 1, 10622001, '기술경영', '소프트웨어 설계 경영학과', '새롬관', '304', 3, '1B,2B', 0, 4);
-INSERT INTO course (year, semester, id_course,title,dept_name,building,room_number, credits, time_slot,currentNum,maxNum) VALUES(2014 , 1, 06480001, '데이터마이닝', '소프트웨어 설계 경영학과', '새롬관', '413', 3, '2E,4D', 0, 4);
-INSERT INTO course (year, semester, id_course,title,dept_name,building,room_number, credits, time_slot,currentNum,maxNum) VALUES(2014 , 1, 09031001, '멀티미디어및실습', '소프트웨어 설계 경영학과', '새롬관', '413', 3, '35,36,37,38', 0, 4);
-INSERT INTO course (year, semester, id_course,title,dept_name,building,room_number, credits, time_slot,currentNum,maxNum) VALUES(2014 , 1, 11438001, '졸업작품3', '소프트웨어 설계 경영학과', '새롬관', '304', 3, '39,310', 0, 4);
+INSERT INTO course (year, semester, id_course,title,dept_name,building,room_number, credits, time_slot,currentNum,maxNum,num_weeks,times) VALUES(2014 , 1, 10622001, '기술경영', '소프트웨어 설계 경영학과', '새롬관', '304', 3, '1B,2B', 0, 4,15,2);
+INSERT INTO course (year, semester, id_course,title,dept_name,building,room_number, credits, time_slot,currentNum,maxNum,num_weeks,times) VALUES(2014 , 1, 06480001, '데이터마이닝', '소프트웨어 설계 경영학과', '새롬관', '413', 3, '2E,4D', 0, 4,15,2);
+INSERT INTO course (year, semester, id_course,title,dept_name,building,room_number, credits, time_slot,currentNum,maxNum,num_weeks,times) VALUES(2014 , 1, 09031001, '멀티미디어및실습', '소프트웨어 설계 경영학과', '새롬관', '413', 3, '35,36,37,38', 0, 4,15,1);
+INSERT INTO course (year, semester, id_course,title,dept_name,building,room_number, credits, time_slot,currentNum,maxNum,num_weeks,times) VALUES(2014 , 1, 11438001, '졸업작품3', '소프트웨어 설계 경영학과', '새롬관', '304', 3, '39,310', 0, 4,15,1);
 
  
 
@@ -357,6 +358,35 @@ CREATE TABLE class_board_reply(
 
 
 
+create table attendance(
+	year integer,
+	semester tinyInt,
+	id_course integer,
+	week tinyInt,
+	day tinyInt,
+	time bigInt unsigned,
+	id_student varchar(40),
+	state tinyInt,
+	primary key(year,semester,id_course, week, day, id_student),
+	foreign key(year, semester, id_course) references course (year,semester,id_course),
+	foreign key(id_student) references user (id_login),
+	INDEX index1(year,semester,id_course,week,day)	
+);
+
+create table question(
+	year integer,
+	semester tinyInt,
+	id_course integer,
+	week tinyInt,
+	day tinyInt,
+	time bigInt unsigned,
+	id_student varchar(40),
+	question text,
+	primary key(year,semester,id_course,week,day,time,id_student),
+	foreign key(year, semester, id_course) references course (year,semester,id_course),
+	foreign key(id_student) references user (id_login),
+	INDEX index1(year,semester,id_course,week,day)
+);
 
 
 

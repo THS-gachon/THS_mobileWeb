@@ -2,9 +2,7 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%
-	request.setCharacterEncoding("UTF-8");
-%>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
@@ -12,11 +10,8 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>ClassBoard</title>
-<link rel="stylesheet" href="css/button.css" type="text/css" />
-<link rel="stylesheet" href="css/table_layout.css" type="text/css" />
-<!-- <link rel="stylesheet" href="<c:url value="/css/main_layout.css"/>"
-	type="text/css" /> -->
+<title>My class</title>
+ <link rel="stylesheet" href="<c:url value="/css/main_layout.css"/>" type="text/css" />
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"
 	type="text/javascript"></script>
@@ -25,6 +20,7 @@
 <script src="<c:url value="/javascript/nav/class_nav.js"/>"
 	type="text/javascript"></script>
 
+
 <script type="text/javascript">
 	function addJavascript(ip, isOnline) {
 		addNavScript();
@@ -32,11 +28,17 @@
 		if (isOnline == 1)
 			window.myJs.btnEnabled(ip);
 	}
+	function onLoadAction(ip, isOnline)
+	{
+		addJavascript(ip,isOnline);
+	}
 </script>
-</head>
-<body>
 
-	<div id="header">Mobile Class</div>
+</head>
+
+<body onload="javascript:onLoadAction('${classServer.ip}',${clossServer.isOnline()});">
+	<div id="header"></div>
+
 	<div id="body">
 		<button id="nav-show">
 			<spring:message code="label.menu.show" />
@@ -61,21 +63,42 @@
 		</div>
 
 		<div id="contents">
-			<jsp:include page="class_board_list.jsp" />
-		</div>
-		<div>
-			<c:if test="${classServer.isOnline()}">
-				<script type="text/javascript"> javascript: addJavascript('${classServer.ip}', 1);
-			</script>
-			</c:if>
-			<c:if test = "${not classServer.isOnline()}">
-				<script type="text/javascript"> javascript: addJavascript('${classServer.ip}', 0);</script>
-			</c:if>
-		</div>
-		<div>
-			Course Time : ${CheckCourseTime}
+			<h3><spring:message code="label.myClass.attendance.studentTitle"/></h3>
+			<h3><spring:message code="label.myClass.attendance.week"/>/<spring:message code="label.myClass.attendance.time"/></h3>
+			<table>
+				<tr>
+					<td>
+						<div id="label">
+							<table>
+								<tr>
+									<td><spring:message code="label.myClass.attendance.name"/></td>
+									<td><spring:message code="label.myClass.attendance.dept_name"/></td>
+									<td><spring:message code="label.myClass.attendance.studentNum"/></td>
+								</tr>
+							</table>
+						</div>
+					</td>
+					<td>
+						<div id="week" style="overflow-x:scroll; width:100px;">
+							<table border="1">
+								<tr>
+								<c:forEach begin="1" end="${course.num_weeks}" step="1"
+									var="week">
+									
+										<c:forEach begin="1" end="${course.times}" step="1" var="time">
+											<th>${week}/${time}</th>
+										</c:forEach>
+								</c:forEach>
+								</tr>
+								
+							</table>
+						</div>
+					</td>
+				</tr>
+			</table>
 		</div>
 	</div>
+
 	<div id="footer"></div>
 </body>
 </html>

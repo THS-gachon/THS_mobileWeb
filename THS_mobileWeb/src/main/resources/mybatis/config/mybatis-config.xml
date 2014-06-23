@@ -22,6 +22,7 @@
 		<typeAlias alias="ClassBoardReply" type="com.gachon.swdm.ths.web.bean.board.ClassBoardReply"></typeAlias>
 		<typeAlias alias="Teaches" type="com.gachon.swdm.ths.web.bean.Teaches"></typeAlias>
 		<typeAlias alias="ClassRoomServer" type="com.gachon.swdm.ths.web.bean.ClassRoomServer"/>
+		<typeAlias alias="Attendance" type="com.gachon.swdm.ths.web.bean.Attendance"/>
 	</typeAliases>
 
 	<mappers>
@@ -36,6 +37,7 @@
 		<mapper resource="mybatis/mapper/class_board.xml"></mapper>
 		<mapper resource="mybatis/mapper/teaches.xml"></mapper>
 		<mapper resource="mybatis/mapper/class_room_server.xml"></mapper>
+		<mapper resource="mybatis/mapper/attendance.xml"></mapper>
 	</mappers>
 
 </configuration>

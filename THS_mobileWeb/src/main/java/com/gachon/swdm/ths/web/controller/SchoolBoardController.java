@@ -20,12 +20,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.gachon.swdm.ths.web.bean.User;
 import com.gachon.swdm.ths.web.bean.board.SchoolBoard;
 import com.gachon.swdm.ths.web.bean.board.SchoolBoardReply;
 import com.gachon.swdm.ths.web.bean.board.SchoolBoardReplyWithPage;
 import com.gachon.swdm.ths.web.service.database.SchoolBoardReplyService;
 import com.gachon.swdm.ths.web.service.database.SchoolBoardService;
-import com.gachon.swdm.ths.web.util.LoginChecker;
 import com.gachon.swdm.ths.web.util.PageCalculator;
 
 @Controller
@@ -109,6 +109,17 @@ public class SchoolBoardController {
 			@ModelAttribute("schoolBoard") SchoolBoard schoolBoard,
 			HttpServletRequest request, Locale locale, Model model) throws Exception {
 
+		//
+		User user = null;
+		user = (User)model.asMap().get("member");
+		if(user.getPosition() != 3)
+		{
+			return "error";
+		}
+				
+		//This will be improved by AOP.
+		//
+	
 		Calendar calendar = Calendar.getInstance();
 
 		schoolBoard.setDate_written(calendar.getTimeInMillis());

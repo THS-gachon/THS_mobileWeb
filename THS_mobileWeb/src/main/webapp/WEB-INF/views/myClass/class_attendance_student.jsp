@@ -12,11 +12,8 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>ClassBoard</title>
-<link rel="stylesheet" href="css/button.css" type="text/css" />
-<link rel="stylesheet" href="css/table_layout.css" type="text/css" />
-<!-- <link rel="stylesheet" href="<c:url value="/css/main_layout.css"/>"
-	type="text/css" /> -->
+<title>Attendance</title>
+<!--  <link rel="stylesheet" href="<c:url value="/css/main_layout.css"/>" type="text/css" />-->
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"
 	type="text/javascript"></script>
@@ -25,18 +22,28 @@
 <script src="<c:url value="/javascript/nav/class_nav.js"/>"
 	type="text/javascript"></script>
 
+
 <script type="text/javascript">
 	function addJavascript(ip, isOnline) {
 		addNavScript();
 		addClassNavScript();
 		if (isOnline == 1)
 			window.myJs.btnEnabled(ip);
-	}
+	};
+	
+	function onLoadAction(ip, isOnline)
+	{
+		//alert("hello");
+		addJavascript(ip,isOnline);
+	};
 </script>
-</head>
-<body>
 
-	<div id="header">Mobile Class</div>
+</head>
+
+<body onload="javascript:onLoadAction('${classServer.ip}',${classServer.isOnline()})">
+
+	<div id="header"></div>
+
 	<div id="body">
 		<button id="nav-show">
 			<spring:message code="label.menu.show" />
@@ -59,23 +66,29 @@
 		<div id="class_nav">
 			<jsp:include page="../nav/class_nav.jsp" />
 		</div>
-
 		<div id="contents">
-			<jsp:include page="class_board_list.jsp" />
-		</div>
-		<div>
-			<c:if test="${classServer.isOnline()}">
-				<script type="text/javascript"> javascript: addJavascript('${classServer.ip}', 1);
-			</script>
-			</c:if>
-			<c:if test = "${not classServer.isOnline()}">
-				<script type="text/javascript"> javascript: addJavascript('${classServer.ip}', 0);</script>
-			</c:if>
-		</div>
-		<div>
-			Course Time : ${CheckCourseTime}
+			<h3><spring:message code="label.myClass.attendance.studentTitle"/></h3>
+			<table border="1">
+			<tr>
+				<th><spring:message code="label.myClass.attendance.week"/></th>
+				<th><spring:message code="label.myClass.attendance.day"/></th>
+				<th><spring:message code="label.myClass.attendance.state"/></th>
+			</tr>
+			<c:forEach var="attendance" items="${attendanceList}">
+				<tr>
+					<td>${attendance.week}</td>
+					<td>${attendance.day}</td>
+					<td>
+					<c:if test="${attendance.state == 0}"><spring:message code="label.myClass.attendance.state.present"/></c:if>
+					<c:if test="${attendance.state == 1}"><spring:message code="label.myClass.attendance.state.absent"/></c:if>
+					<c:if test="${attendance.state == 2}"><spring:message code="label.myClass.attendance.state.late"/></c:if>
+					</td>
+				</tr>
+			</c:forEach>
+			</table>
 		</div>
 	</div>
+
 	<div id="footer"></div>
 </body>
 </html>

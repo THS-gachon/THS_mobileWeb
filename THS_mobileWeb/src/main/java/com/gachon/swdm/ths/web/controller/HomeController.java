@@ -41,7 +41,7 @@ public class HomeController {
 		System.out.println(request.getRemoteAddr());
 		System.out.println(request.getRemotePort());
 		
-		System.out.println(request.getLocalAddr());
+		System.out.println(request.getLocalAddr()); 
 		System.out.println(request.getLocalPort());
 		return this.loginForm(locale, model);
 	}

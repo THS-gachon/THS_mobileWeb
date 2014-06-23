@@ -12,6 +12,8 @@
 		<id property="id_course" column="id_course"/>
 		<result property="grade" column="grade"/>
  	</resultMap>
+ 	
+ 	
 
 
 	<insert id="insertTakes" parameterType="Takes">
@@ -19,8 +21,12 @@
 	</insert>
 	
 	<delete id="deleteTakes" parameterType="Takes">
-		DELETE FROM takes where id_student = #{id_student} and year = #{year} and semester = #{semester} and id_course = #{id_course}
+		DELETE FROM takes WHERE id_student = #{id_student} and year = #{year} and semester = #{semester} and id_course = #{id_course}
 	</delete>
+	
+	<select id="getTakesInClass" resultMap="takesResult" parameterType="Takes">
+		SELECT * FROM takes WHERE year=#{year} and semester = #{semester} and id_course = #{id_course} and id_student = #{id_student}
+	</select>
 
 </mapper>
 

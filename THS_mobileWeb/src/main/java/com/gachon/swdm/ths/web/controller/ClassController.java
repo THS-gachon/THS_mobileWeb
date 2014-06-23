@@ -12,7 +12,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -21,21 +20,24 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.gachon.swdm.ths.web.bean.Attendance;
 import com.gachon.swdm.ths.web.bean.ClassRoomServer;
 import com.gachon.swdm.ths.web.bean.Course;
 import com.gachon.swdm.ths.web.bean.Takes;
+import com.gachon.swdm.ths.web.bean.User;
 import com.gachon.swdm.ths.web.bean.board.ClassBoard;
 import com.gachon.swdm.ths.web.bean.board.ClassBoardReply;
 import com.gachon.swdm.ths.web.bean.board.ClassBoardReplyWithPage;
+import com.gachon.swdm.ths.web.service.database.AttendanceService;
 import com.gachon.swdm.ths.web.service.database.ClassBoardReplyService;
 import com.gachon.swdm.ths.web.service.database.ClassBoardService;
 import com.gachon.swdm.ths.web.service.database.ClassServerService;
 import com.gachon.swdm.ths.web.service.database.CourseService;
 import com.gachon.swdm.ths.web.service.database.DepartmentService;
 import com.gachon.swdm.ths.web.service.database.TeachesService;
-import com.gachon.swdm.ths.web.util.Time;
 import com.gachon.swdm.ths.web.util.CurrentDateCalculator;
 import com.gachon.swdm.ths.web.util.PageCalculator;
+import com.gachon.swdm.ths.web.util.Time;
 
 @Controller
 @SessionAttributes("member")
@@ -66,6 +68,69 @@ public class ClassController {
 	@Autowired
 	@Qualifier("classServerService")
 	private ClassServerService classServerService;
+
+	@Autowired
+	@Qualifier("attendanceService")
+	private AttendanceService attendanceService;
+
+	@RequestMapping(value = "/classAttendance.action", method = RequestMethod.GET)
+	public String classAttendance(@RequestParam(value = "year") int year,
+			@RequestParam(value = "semester") int semester,
+			@RequestParam(value = "id_course") int id_course,
+			@RequestParam(value = "id_user") String id_user, Locale locale,
+			Model model) {
+
+		ClassRoomServer classServer;
+
+		Course course= new Course();
+		classServer = new ClassRoomServer();
+		classServer.setId_course(id_course);
+		classServer.setYear(year);
+		classServer.setSemester(semester);
+
+		classServer = classServerService.getClassServer(classServer);
+		// System.out.println(classServer.isOnline()+" tt");
+		User user = null;
+		Attendance attendance;
+		List<Attendance> attendanceList = null;
+		user = (User) model.asMap().get("member");
+
+		course.setYear(year);
+		course.setSemester(semester);
+		course.setId_course(id_course);
+		course = courseService.getCourse(course);
+		
+		attendance = new Attendance();
+		attendance.setYear(year);
+		attendance.setSemester(semester); 
+		attendance.setId_course(id_course);
+		attendance.setId_student(user.getLoginId());
+
+		attendanceList = attendanceService.getAllByStudent(attendance);
+
+		System.out.println("attendanceList size"+attendanceList.size());
+		System.out.println("classServer "+classServer.isOnline());
+		System.out.println("year "+year);
+		System.out.println("semester "+semester);
+		System.out.println("id_course "+id_course);
+		
+		model.addAttribute("classServer", classServer);
+		model.addAttribute("course", course);
+		model.addAttribute("id_user", id_user);
+		// System.out.println("year "+year);
+		model.addAttribute("attendanceList", attendanceList);
+
+
+		System.out.println("times "+course.getTimes() );
+		System.out.println("weeks "+course.getNum_weeks());
+		if(user.getPosition() ==1)
+		{
+			return "myClass/class_attendance_professor";
+		}
+		
+		return "myClass/class_attendance_student";
+
+	}
 
 	@RequestMapping(value = "/classServerService.action", method = RequestMethod.POST)
 	public String classServerService(@RequestParam(value = "year") int year,
@@ -316,18 +381,16 @@ public class ClassController {
 
 		ClassRoomServer classServer;
 		Course course;
-		
+
 		classServer = new ClassRoomServer();
 		classServer.setId_course(id_course);
 		classServer.setYear(year);
 		classServer.setSemester(semester);
 
-		classServerService.getClassServer(classServer);
-
 		classServer = classServerService.getClassServer(classServer);
 		System.out.println(classServer.isOnline());
 		model.addAttribute("classServer", classServer);
-		
+
 		course = getCourseMeta(year, semester, id_course);
 		course = courseService.getCourse(course);
 		String courseTime = course.getTime();
@@ -335,7 +398,7 @@ public class ClassController {
 		time.setTime(courseTime);
 		Boolean result = time.checkCourseTime();
 		model.addAttribute("CheckCourseTime", result);
-		
+
 		return this.getClassBoardList(year, semester, id_course, id_student,
 				type, 0, locale, model);
 	}
@@ -365,5 +428,4 @@ public class ClassController {
 		course.setSemester(semester);
 		return course;
 	}
-
 }

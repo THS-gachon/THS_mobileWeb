@@ -54,7 +54,7 @@ public class CourseServiceImpl implements CourseService{
 	}
 
 	@Override
-	@Transactional(rollbackFor = UnsupportedOperationException.class)
+	@Transactional(rollbackFor = {UnsupportedOperationException.class,Exception.class})
 	public void takeCourse(Course course, Takes takes) throws UnsupportedOperationException {
 
 		Course tmpCourse = new Course();

@@ -1,0 +1,87 @@
+
+.CSSTABLE table{
+	font-family: "Tahoma", Verdana, Arial, Helvetica, sans-serif;
+	font-size:  20px;
+	border-collapse: collapse;
+}
+
+.CSSTABLE caption{
+	background: url(title.png) no-repeat 50px;
+	font-size: 400%;
+	text-indent: -10000px;
+}
+
+.CSSTABLE thead tr{
+	background-color: #D9FFD9;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+}
+
+.CSSTABLE tfoot tr{
+	background-color: #FFFFFF;
+}
+
+.CSSTABLE thead th{
+	padding: 0.5em;
+	white-space: nowrap;
+}
+
+.CSSTABLE tfoot th{
+	font-size: 110%;
+	text-align: right;
+	padding-right: 0.5em;
+	letter-spacing: 1px;
+	background:  
+}
+
+.CSSTABLE tfoot td{
+	padding-left: 0.5em;
+	color: red;
+	font-size: 110%;
+	font-weight: 600;
+}
+
+.CSSTABLE tfoot td:hover{
+	background-color: red;
+	color: white;
+}
+
+.CSSTABLE tr{
+	background-color: #EAFDFF;
+}
+
+.CSSTABLE tr.odd{
+	background-color: #FFFFFF;
+}
+
+.CSSTABLE tbody tr:hover{
+	background-color: #FFCCCC;
+}
+
+.CSSTABLE td, th{
+	border: 1px dotted #CCCCCC;
+}
+
+.CSSTABLE tbody td
+{
+	padding: 0.5em;
+}
+
+.CSSTABLE td a:link, th a:link{
+	color: black;
+}
+
+.CSSTABLE td a:visited, th a:visited{
+	color: black;
+	text-decoration: line-through;
+}
+
+.CSSTABLE td a:hover, th a:hover{
+	color: purple;
+	text-decoration: underline;
+}
+
+.CSSTABLE td:last-child a:hover{
+	color: red;
+	text-decoration: underline overline;
+}

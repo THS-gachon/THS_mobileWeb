@@ -15,8 +15,9 @@
 <title>Course Enrollment</title>
 <head>
 <link rel="stylesheet" href="css/table_layout2.css" type="text/css" />
+
 <link rel="stylesheet" href="css/button.css" type="text/css" />
-</head>
+
 <!-- <link rel="stylesheet" href="<c:url value="/css/main_layout.css"/>" type="text/css" /> -->
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"
@@ -33,7 +34,8 @@
 	}
 </script>
 </head>
-</head>
+
+
 <body onload="javascript:addJavascript()">
 
 	<div id="header">

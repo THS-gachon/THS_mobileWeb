@@ -41,7 +41,9 @@
 
 		<!-- app -->
 		<tr>
+
 			<td><a href="classAttendance.action?id_user=${member.loginId}&year=${course.year}&semester=${course.semester}&id_course=${course.id_course}"><spring:message code="label.menu.class.attendance"/></a></td>
+
 			<td><spring:message code="label.menu.class.remoteControl" /></td>
 		</tr>
 

@@ -7,6 +7,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
+
 <a
 	href="classBoardWrite.action?year=${course.year}&semester=${course.semester}&id_course=${course.id_course}&type=${type}&page=${page}"><spring:message
 		code="label.myClass.board.write" /></a>
@@ -28,6 +29,7 @@
 					<c:when test="${status.index%2 == 1}">
 						<tr class="odd">
 					</c:when>
+
 
 					<c:otherwise>
 						<tr>

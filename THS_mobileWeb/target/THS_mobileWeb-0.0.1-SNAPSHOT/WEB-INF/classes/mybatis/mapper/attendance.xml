@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.gachon.swdm.ths.web.bean.Attendance">
+
+	<resultMap type="Attendance" id="AttendanceResult">
+		
+		<id property="year" column="year" />
+		<id property="semester" column="semester" />
+		<id property="id_course" column="id_course" />
+		<id property="week" column="week" />
+		<id property="day" column="day" />
+		<id property="id_writer" column="id_user" />
+		<result property="id_student" column="id_student" />
+		<result property="time" column="time" />
+		
+		<result property="id_person" column="id_person" />
+		<result property="name" column="name" />
+		<result property="dept_name" column="dept_name"/>
+	</resultMap>
+	
+	<select id="getAll" resultMap="AttendanceResult" parameterType="Attendance">
+		SELECT a.*, b.id_person, b.id_name, b.dept_name FROM (SELECT * FROM attendance WHERE year = #{year} and semester = #{semester} and id_course = #{id_course}) a JOIN user b ON a.id_student = b.id_login 
+	</select>
+	
+	<select id="getTodayAttendance" resultMap="AttendanceResult" parameterType="Attendance">
+		SELECT a.*, b.id_person, b.id_name, b.dept_name FROM (SELECT * FROM attendance WHERE year = #{year} and semester = #{semester} and id_course = #{id_course} and week = #{week} and day = #{day}) a JOIN user b ON a.id_student = b.id_login 
+	</select>
+	
+	<select id="getAllByStudent" resultMap="AttendanceResult" parameterType="Attendance">
+		SELECT a.*, b.id_person, b.name, b.dept_name FROM (SELECT * FROM attendance WHERE year = #{year} and semester = #{semester} and id_course = #{id_course} and id_student = #{id_student}) a JOIN user b ON a.id_student = b.id_login 
+	</select>
+	
+	<insert id="saveAttendance" parameterType="Attendance">
+		INSERT INTO attendance(year,semester,id_course,week,day,time,id_student,state) values (#{year}, #{semester}, #{id_course}, #{week}, #{day}, #{time}, #{id_student}, #{state})
+	</insert>
+	
+	<update id="updateAttendance">
+		UPDATE attendance SET state = #{state} WHERE year=#{year} and semester=#{semester} and id_course=#{id_course} and week=#{week}, day=#{day} and id_student=#{id_student}
+	</update>
+</mapper>
+
+
+

@@ -23,6 +23,7 @@
 		<typeAlias alias="Teaches" type="com.gachon.swdm.ths.web.bean.Teaches"></typeAlias>
 		<typeAlias alias="ClassRoomServer" type="com.gachon.swdm.ths.web.bean.ClassRoomServer"/>
 		<typeAlias alias="Attendance" type="com.gachon.swdm.ths.web.bean.Attendance"/>
+		
 	</typeAliases>
 
 	<mappers>

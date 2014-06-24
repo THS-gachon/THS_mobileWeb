@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.gachon.swdm.ths.web.bean.Teaches">
+
+	<resultMap type="Teaches" id="takesResult">
+		<id property="id_professor" column="id_professor"/>
+		<id property="year" column="year"/>
+		<id property="semester" column="semester"/>
+		<id property="id_course" column="id_course"/>
+		<result property="summary" column="summary"/>
+ 	</resultMap>
+
+
+	<insert id="insertTeaches" parameterType="Teaches">
+		INSERT INTO takes(id_professor, year, semester, id_course, grade) VALUES (#{id_professor}, #{year}, #{semester}, #{id_course}, #{summary})
+	</insert>
+
+	<delete id="deleteTeaches" parameterType="Teaches">
+		DELETE FROM takes WHERE id_professor = #{id_professor} and year = #{year} and semester = #{semester} and id_course = #{id_course}
+	</delete>
+	<update id="updateSummary" parameterType="Teaches">
+		UPDATE takes set summary = #{summary} WHERE id_professor = #{id_professor} and year = #{year} and semester = #{semester} and id_course = #{id_course}
+	</update>
+
+</mapper>
+
+
+

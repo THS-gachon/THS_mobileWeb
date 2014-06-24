@@ -1,6 +1,7 @@
 package com.gachon.swdm.ths.web.bean;
 
 
+
 public class User {
 	//primary key (id_login)
 	private String pwCheck;
